@@ -1,10 +1,17 @@
-function indexSharpFlat(tuning) {
+// 6 string guitars only
+// case insensitive, tuning with Bflat, check tuning length > 6
+
+function Tuning(tuning) {
+  this.notes = this.tuneMe(tuning);
+};
+
+Tuning.prototype.indexOfSharpFlat = function(tuning) {
   var indices = [];
-  var regEx = /[^a-z^A-z]/;
+  var sharpFlatRegEx = /[^a-z^A-z]/;
   var tuningArr = tuningToArr(tuning);
 
   for (var i = 0; i < tuningArr.length; i++) {
-    if (tuningArr[i].match(regEx) != null) {
+    if (tuningArr[i].match(sharpFlatRegEx) != null) {
       indices.push(i);
     }
   };
@@ -12,16 +19,12 @@ function indexSharpFlat(tuning) {
   return indices;
 };
 
-function tuningToArr(tuning) {
+Tuning.prototype.tuningToArr = function(argument) {
   return tuning.split('');
 };
 
-function Tuning(tuning) {
-  this.notes = this.tuneMe(tuning);
-};
-
 Tuning.prototype.tuneMe = function(tuning) {
-  var indices = indexSharpFlat(tuning);
+  var indices = indexOfSharpFlat(tuning);
   var tuning = tuningToArr(tuning);
 
   for (var i = 0; i < indices.length; i++) {
@@ -31,8 +34,6 @@ Tuning.prototype.tuneMe = function(tuning) {
 
   return tuning;
 };
-
-//
 
 var key = "e";
 
