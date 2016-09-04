@@ -1,42 +1,35 @@
 // 6 string guitars only
-// case insensitive, tuning with Bflat, check tuning length > 6
+// write functions to validate input
+// suggest tuning/chord to note parser for exercism.io
 
 function Tuning(tuning) {
-  this.notes = this.tuneMe(tuning);
+  this.tuning =  tuning;
+  this.notes = this.parse(this.tuning);
 };
 
-Tuning.prototype.indexOfSharpFlat = function(tuning) {
-  var indices = [];
-  var sharpFlatRegEx = /[^a-z^A-z]/;
-  var tuningArr = tuningToArr(tuning);
-
-  for (var i = 0; i < tuningArr.length; i++) {
-    if (tuningArr[i].match(sharpFlatRegEx) != null) {
-      indices.push(i);
-    }
-  };
-
-  return indices;
-};
-
-Tuning.prototype.tuningToArr = function(argument) {
+Tuning.prototype.tuningToArr = function(tuning) {
   return tuning.split('');
 };
 
-Tuning.prototype.tuneMe = function(tuning) {
-  var indices = indexOfSharpFlat(tuning);
-  var tuning = tuningToArr(tuning);
+Tuning.prototype.parse = function(tuning) {
+  var tuningArr = this.tuningToArr(tuning);
 
-  for (var i = 0; i < indices.length; i++) {
-    tuning[indices[i] - 1] = tuning[indices[i] - 1] + tuning[indices[i]];
-    tuning.splice(indices[i], 1);
+  for (var i = 0; i < tuningArr.length; i++) {
+    if (tuningArr[i] == "#") {
+      tuningArr[i - 1] = tuningArr[i - 1] + "#";
+    } else if (tuningArr[i] == "b") {
+      tuningArr[i - 1] = tuningArr[i - 1] + "b";
+    }
   };
 
-  return tuning;
+  return tuningArr.filter(function(char) {
+    return char != ("#" || "b");
+  });  
 };
 
 var key = "e";
 
-var standard = new Tuning('eadgbe');
-var americanFootball = new Tuning('facgce');
-var algernonCadwallader = new Tuning('daeac#e');
+var standard = new Tuning('EADGBE');
+var eb = new Tuning('EbADGBE');
+var americanFootball = new Tuning('FACGCE');
+var algernonCadwallader = new Tuning('DAEAC#E');
