@@ -4,8 +4,8 @@
 // root notation takes flat or sharp?
 
 function Tuning(tuning, root) {
-  this.tuning =  tuning;
-  this.notes = this.parse(this.tuning);
+  this.name =  tuning;
+  this.notes = this.parse(this.name);
   this.notesFlat = this.normalizeToFlat(this.notes);
   this.notesSharp = this.normalizeToSharp(this.notes);
   this.root = root.toUpperCase();
@@ -13,7 +13,7 @@ function Tuning(tuning, root) {
 };
 
 Tuning.prototype.tuningToArr = function() {
-  return this.tuning.split('');
+  return this.name.split('');
 };
 
 Tuning.prototype.parse = function() {
