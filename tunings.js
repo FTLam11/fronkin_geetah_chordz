@@ -4,7 +4,7 @@
 // root notation takes flat or sharp?
 
 function Tuning(tuning, root) {
-  this.name =  tuning;
+  this.name =  this.validateName(tuning);
   this.notes = this.parse(this.name);
   this.notesFlat = this.normalizeToFlat(this.notes);
   this.notesSharp = this.normalizeToSharp(this.notes);
@@ -14,6 +14,26 @@ function Tuning(tuning, root) {
 
 Tuning.prototype.tuningToArr = function() {
   return this.name.split('');
+};
+
+Tuning.prototype.validateName = function(tuning) {
+  if (this.validLength(tuning) && this.validChars(tuning) && this.validAccidentals(tuning)) {
+    return tuning;
+  } else {
+    return SyntaxError, "The name of this tuning is not valid."
+  }
+};
+
+Tuning.prototype.validLength = function(tuning) {
+  return (tuning.length >= 6 && tuning.length < 13);
+};
+
+Tuning.prototype.validChars = function(tuning) {
+  return (tuning.match(/[^A-Gb#]/) === null) 
+};
+
+Tuning.prototype.validAccidentals = function(tuning) {
+  return (tuning.match(/\A[#b]/) === null) && (tuning.match(/[BE]#/) === null) && (tuning.match(/[CF]b/) === null)
 };
 
 Tuning.prototype.parse = function() {

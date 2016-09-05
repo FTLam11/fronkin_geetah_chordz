@@ -5,9 +5,11 @@ describe("Tuning", function() {
       expect(standard.name).toEqual("EADGBE");
     });
 
-    it("raises an error when a tuning has invalid sharps", function() {
+    it("raises an error when the tuning has invalid sharps", function() {
       sharp = new Tuning("#EADGBE", "E#");
-      expect(standard.name).toThrowError(SyntaxError, "The name of this tuning is not valid.");
+      expect(function() {
+        standard.name;
+      }).toThrowError(SyntaxError, "The name of this tuning is not valid.");
     });
   });  
 });
