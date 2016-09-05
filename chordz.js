@@ -1,10 +1,15 @@
 // 6 string guitars only
 // write functions to validate input (chars.length is [6,13), first char cannot be 'b' or '#', no lower case letters except b, invalid chars) 
 // suggest tuning/chord to note parser for exercism.io
+// root notation takes flat or sharp?
 
-function Tuning(tuning) {
+function Tuning(tuning, root) {
   this.tuning =  tuning;
   this.notes = this.parse(this.tuning);
+  this.notesFlat = this.normalizeToFlat(this.notes);
+  this.notesSharp = this.normalizeToSharp(this.notes);
+  this.root = root.toUpperCase();
+  this.scale = this.intervals();
 };
 
 Tuning.prototype.tuningToArr = function() {
@@ -28,11 +33,71 @@ Tuning.prototype.parse = function() {
 };
 
 Tuning.prototype.intervals = function() {
+  var notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+  var scale = [];
+  var currentNoteIndex = notes.indexOf(this.root)
+  
+  for (var i = 0; i < 12; i++) {
+    scale.push(notes[currentNoteIndex]);
 
-}
+    if (currentNoteIndex == 11) {
+      currentNoteIndex = 0;
+    } else {
+      currentNoteIndex++;
+    }
+  };
 
-var standard = new Tuning('EADGBE');
-var eb = new Tuning('EbADGBE');
-var americanFootball = new Tuning('FACGCE');
-var algernonCadwallader = new Tuning('DAEAC#E');
-var lute = new Tuning('EADF#BE');
+  return scale;
+};
+
+Tuning.prototype.normalizeToSharp = function() {
+  var flatToSharp = {
+    "Bb": "A#",
+    "Db": "C#",
+    "Eb": "D#",
+    "Gb": "F#",
+    "Ab": "G#"
+  };
+
+  var sharpened = this.notes.slice();
+
+  for (var flat in flatToSharp) {
+    if (flatToSharp.hasOwnProperty(flat)) {
+      if (sharpened.indexOf(flat) > -1) {
+        sharpened.splice(sharpened.indexOf(flat), 1, flatToSharp[flat]);
+      }
+    }
+  }
+
+  return sharpened;  
+};
+
+Tuning.prototype.normalizeToFlat = function() {
+  var sharpToFlat = {
+  "A#": "Bb",
+  "C#": "Db",
+  "D#": "Eb",
+  "F#": "Gb",
+  "G#": "Ab"  
+  };
+
+  var flattened = this.notes.slice();
+
+  for (var sharp in sharpToFlat) {
+    if (sharpToFlat.hasOwnProperty(sharp)) {
+      if (flattened.indexOf(sharp) > -1) {
+        flattened.splice(flattened.indexOf(sharp), 1, sharpToFlat[sharp]);
+      }
+    }
+  }
+
+  return flattened;
+};
+
+var notes = ["A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab"];
+
+var standard = new Tuning("EADGBE", "E");
+var eb = new Tuning("EbADGBE", "Eb");
+var americanFootball = new Tuning("FACGCE", "F");
+var algernonCadwallader = new Tuning("DAEAC#E", "D");
+var lute = new Tuning("EADF#BE", "E");
