@@ -5,11 +5,25 @@ describe("Tuning", function() {
       expect(standard.name).toEqual("EADGBE");
     });
 
-    it("raises an error when the tuning has invalid sharps", function() {
-      sharp = new Tuning("#EADGBE", "E#");
-      expect(function() {
-        standard.name;
-      }).toThrowError(SyntaxError, "The name of this tuning is not valid.");
+    it("throws an error when the tuning has invalid sharps", function() {
+      sharp = function() {
+        invalidSharp = new Tuning("#EADGBE", "E#");
+      };
+      expect(sharp).toThrow();
+    });
+
+    it("throws an error when the tuning has invalid flats", function() {
+      flat = function() {
+        invalidFlat = new Tuning("bEADGBE", "Eb");
+      };
+      expect(flat).toThrow();
+    });
+
+    it("throws an error when the tuning has invalid notes", function() {
+      impossible = function() {
+        impossibleTuning = new Tuning("XZASWF", "E");
+      }
+      expect(impossible).toThrow();
     });
   });  
 });

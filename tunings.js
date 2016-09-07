@@ -20,7 +20,7 @@ Tuning.prototype.validateName = function(tuning) {
   if (this.validLength(tuning) && this.validChars(tuning) && this.validAccidentals(tuning)) {
     return tuning;
   } else {
-    return SyntaxError, "The name of this tuning is not valid."
+    throw new TuningError("The name of this tuning is not valid.");
   }
 };
 
@@ -33,7 +33,7 @@ Tuning.prototype.validChars = function(tuning) {
 };
 
 Tuning.prototype.validAccidentals = function(tuning) {
-  return (tuning.match(/\A[#b]/) === null) && (tuning.match(/[BE]#/) === null) && (tuning.match(/[CF]b/) === null)
+  return (tuning.match(/^[#b]/) === null) && (tuning.match(/[BE]#/) === null) && (tuning.match(/[CF]b/) === null)
 };
 
 Tuning.prototype.parse = function() {
@@ -112,6 +112,11 @@ Tuning.prototype.normalizeToFlat = function() {
   }
 
   return flattened;
+};
+
+function TuningError(message) {
+  this.message = message;
+  this.name = "TuningError"
 };
 
 var notes = ["A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab"];
