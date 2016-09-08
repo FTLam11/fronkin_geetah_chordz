@@ -6,9 +6,9 @@
 function Tuning(tuning, root) {
   this.name =  this.validateName(tuning);
   this.notes = this.parse(this.name);
-  this.notesFlat = this.normalizeToFlat(this.notes);
-  this.notesSharp = this.normalizeToSharp(this.notes);
-  this.root = root.toUpperCase();
+  this.flattened = this.normalizeToFlat(this.notes);
+  this.sharpened = this.normalizeToSharp(this.notes);
+  this.root = root.validateRoot();
   this.scale = this.intervals();
 };
 
@@ -114,9 +114,24 @@ Tuning.prototype.normalizeToFlat = function() {
   return flattened;
 };
 
+Tweet.prototype.validateRoot = function(rootNote) {
+  if (rootNote.match(/[^A-G][^#b]?/)) {
+    throw new RootError("The given root note is invalid.");
+  } else if (perfect) {
+    rootNote.toUpperCase();
+  } else {
+    rootNote[0].toUpperCase();
+  }
+}
+
 function TuningError(message) {
   this.message = message;
   this.name = "TuningError"
+};
+
+function RootError(message) {
+  this.message = message;
+  this.name = "RootError"
 };
 
 var notes = ["A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab"];
