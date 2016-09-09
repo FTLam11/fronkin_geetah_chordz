@@ -1,5 +1,5 @@
 function Chord(name) {
-  this.name = name
+  this.name = name//this.name()
   this.intervals = this.decompose(name)
   // this.notes = new Tuning
 };
@@ -7,12 +7,13 @@ function Chord(name) {
 /*
 Major:
 Minor: Cmin, Cmin7, Cmin9
-Dominant: C7, C9, C11, C13, Csus, Csus2, Csus4
+Dominant: C7, C9, C11, C13, Csus, Csus2, Csus4, Cdim
 */ 
 
-Chord.prototype.name = function() {
+Chord.prototype.name = function(chordName) {
   // click from list, don't have to worry Regexing user input
-  // parse into array of strings  
+  // parse into array of strings
+  // ([A-G])([179][13]?|\w{3})([179][13]?)  
 };
 
 Chord.prototype.intervals = function(first_argument) {
