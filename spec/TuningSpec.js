@@ -37,21 +37,21 @@ describe("Tuning", function() {
   describe("notes", function() {
     it("returns a collection of individual notes that form the tuning", function() {
       algernon = new Tuning("DAEAC#E", "D");
-      expect(algernon.notes).toEqual(["D","A","E","A","C#","E"]);
+      expect(algernon.notes).toEqual(["D", "A", "E", "A", "C#", "E"]);
     });
   });
 
   describe("flattened", function() {
     it("replaces all sharps with flats and returns a collection of individual notes that form the tuning", function() {
       algernon = new Tuning("DAEAC#E", "D");
-      expect(algernon.flattened).toEqual(["D","A","E","A","Db","E"]);
+      expect(algernon.flattened).toEqual(["D", "A", "E", "A", "Db", "E"]);
     });
   });
 
   describe("sharpened", function() {
     it("replaces all flats with sharps and returns a collection of individual notes that form the tuning", function() {
       eb = new Tuning("EbADGBE", "Eb");
-      expect(eb.sharpened).toEqual(["D#","A","D","G","B","E"]);
+      expect(eb.sharpened).toEqual(["D#", "A", "D", "G", "B", "E"]);
     });
   });
 
@@ -72,7 +72,7 @@ describe("Tuning", function() {
   describe("intervals", function() {
     it("returns all flat normalized notes in half-step intervals when the tuning contains a flat", function() {
       eb = new Tuning("EbADGBE", "Eb");
-      expect(eb.intervals).toEqual(["Eb","E","F","Gb","G","Ab","A","Bb","B","C","Db","D"]);      
+      expect(eb.intervals).toEqual(["Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D"]);      
     });
 
     it("returns all sharp normalized notes in half-step intervals when the tuning contains a sharp", function() {
