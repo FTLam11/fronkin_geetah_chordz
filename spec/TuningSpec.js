@@ -60,5 +60,24 @@ describe("Tuning", function() {
       eb = new Tuning("EbADGBE", "Eb");
       expect(eb.root).toEqual("Eb");
     });
+
+    it("throws an error when the root is invalid", function() {
+      impossible = function() {
+        impossibleRoot = new Tuning("EADGBE", "Ec");
+      }
+      expect(impossible).toThrow();      
+    })
+  });
+
+  describe("intervals", function() {
+    it("returns all flat normalized notes in half-step intervals when the tuning contains a flat", function() {
+      eb = new Tuning("EbADGBE", "Eb");
+      expect(eb.intervals).toEqual(["Eb","E","F","Gb","G","Ab","A","Bb","B","C","Db","D"]);      
+    });
+
+    it("returns all sharp normalized notes in half-step intervals when the tuning contains a sharp", function() {
+      algernon = new Tuning("DAEAC#E", "D");
+      expect(algernon.intervals).toEqual(["D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#"]);      
+    });    
   });  
 });

@@ -8,8 +8,8 @@ function Tuning(tuning, root) {
   this.notes = this.parse(this.name);
   this.flattened = this.normalizeToFlat(this.notes);
   this.sharpened = this.normalizeToSharp(this.notes);
-  this.root = root.validateRoot();
-  this.scale = this.intervals();
+  this.root = this.validateRoot(root);
+  this.intervals = this.intervals();
 };
 
 Tuning.prototype.tuningToArr = function() {
@@ -54,11 +54,16 @@ Tuning.prototype.parse = function() {
 
 Tuning.prototype.intervals = function() {
   var notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
-  var scale = [];
+
+  if (this.notes.some(note => note.match(/.{1}b/) != null)) {
+    notes = this.normalizeToFlat(notes);
+  }
+
+  var intervals = [];
   var currentNoteIndex = notes.indexOf(this.root)
   
   for (var i = 0; i < 12; i++) {
-    scale.push(notes[currentNoteIndex]);
+    intervals.push(notes[currentNoteIndex]);
 
     if (currentNoteIndex == 11) {
       currentNoteIndex = 0;
@@ -67,10 +72,10 @@ Tuning.prototype.intervals = function() {
     }
   };
 
-  return scale;
+  return intervals;
 };
 
-Tuning.prototype.normalizeToSharp = function() {
+Tuning.prototype.normalizeToSharp = function(notesArr) {
   var flatToSharp = {
     "Bb": "A#",
     "Db": "C#",
@@ -79,7 +84,7 @@ Tuning.prototype.normalizeToSharp = function() {
     "Ab": "G#"
   };
 
-  var sharpened = this.notes.slice();
+  var sharpened = notesArr.slice();
 
   for (var flat in flatToSharp) {
     if (flatToSharp.hasOwnProperty(flat)) {
@@ -92,7 +97,7 @@ Tuning.prototype.normalizeToSharp = function() {
   return sharpened;  
 };
 
-Tuning.prototype.normalizeToFlat = function() {
+Tuning.prototype.normalizeToFlat = function(notesArr) {
   var sharpToFlat = {
   "A#": "Bb",
   "C#": "Db",
@@ -101,7 +106,7 @@ Tuning.prototype.normalizeToFlat = function() {
   "G#": "Ab"  
   };
 
-  var flattened = this.notes.slice();
+  var flattened = notesArr.slice();
 
   for (var sharp in sharpToFlat) {
     if (sharpToFlat.hasOwnProperty(sharp)) {
@@ -114,15 +119,15 @@ Tuning.prototype.normalizeToFlat = function() {
   return flattened;
 };
 
-Tweet.prototype.validateRoot = function(rootNote) {
-  if (rootNote.match(/[^A-G][^#b]?/)) {
+Tuning.prototype.validateRoot = function(rootNote) {
+  if (rootNote.match(/[A-G][#b]?/) != rootNote) {
     throw new RootError("The given root note is invalid.");
-  } else if (perfect) {
-    rootNote.toUpperCase();
   } else {
     rootNote[0].toUpperCase();
   }
-}
+
+  return rootNote;
+};
 
 function TuningError(message) {
   this.message = message;
