@@ -1,3 +1,5 @@
+// 1 b2 2 b3 3 4 b5 5 #5 6 b7 7
+
 function Chord(name) {
   this.name = name//this.name()
   this.intervals = this.decompose(name)
@@ -25,14 +27,22 @@ Chord.prototype.mapToFretBoard = function(first_argument) {
 };
 
 Chord.prototype.decompose = function(chordName) {
-  // body...
   // JS constant for chord formulas
-  var chordFormulas = {
-    maj: [1, 3, 5],
-    // maj7: this.maj.push(7),
-    maj7: [1, 3, 5, 7],
-    min: [1, "b3", 5],
+  const CHORD_FORMULAS = {
+    maj: ["1", "3", "5"],
+    min: ["1", "b3", "5"],
+    dim: ["1", "b3", "b5"],
+    aug: ["1", "3", "#5"],
+    maj7: ["1", "3", "5", "7"],
+    min7: ["1", "b3", "5", "b7"],
+    dim7: ["1", "3", "5", "6"],
+    aug7: ["1", "3", "#5", "b7"],
+    dom7: ["1", "3", "5", "b7"],
+    5: ["1", "5"],
+    6: ["1", "3", "5", "6"],
+    6/9: ["1", "3", "5", "6", "9"],
+
   };
 
-  return chordFormulas.chordName
+  return CHORD_FORMULAS.chordName
 };
