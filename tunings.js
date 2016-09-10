@@ -53,15 +53,17 @@ Tuning.prototype.parse = function() {
 Tuning.prototype.intervals = function() {
   var notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
 
+  var intervalSymbols = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"]
+
   if (this.notes.some(note => note.match(/.{1}b/) != null)) {
     notes = this.normalizeToFlat(notes);
   };
 
-  var intervals = [];
+  var mapping = {};
   var currentNoteIndex = notes.indexOf(this.root);
   
   for (var i = 0; i < 12; i++) {
-    intervals.push(notes[currentNoteIndex]);
+    mapping[intervalSymbols[i]] = notes[currentNoteIndex];
 
     if (currentNoteIndex == 11) {
       currentNoteIndex = 0;
@@ -70,7 +72,7 @@ Tuning.prototype.intervals = function() {
     };
   };
 
-  return intervals;
+  return mapping;
 };
 
 Tuning.prototype.normalizeToSharp = function(notesArr) {
