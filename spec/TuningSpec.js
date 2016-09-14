@@ -72,12 +72,12 @@ describe("Tuning", function() {
   describe("intervals", function() {
     it("returns a mapping of note intervals to all flat normalized notes when the tuning contains a flat", function() {
       eb = new Tuning("EbADGBE", "Eb");
-      expect(eb.intervals).toEqual(["Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D"]);      
+      expect(eb.intervals).toEqual({ 1: 'Eb', 2: 'F', 3: 'G', 4: 'Ab', 5: 'Bb', 6: 'C', 7: 'D', b2: 'E', b3: 'Gb', b5: 'A', '#5': 'B', b7: 'Db' });      
     });
 
     it("returns a mapping of note intervals to all sharp normalized notes when the tuning contains a sharp", function() {
       algernon = new Tuning("DAEAC#E", "D");
-      expect(algernon.intervals).toEqual(["D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#"]);      
+      expect(algernon.intervals).toEqual({ 1: 'D', 2: 'E', 3: 'F#', 4: 'G', 5: 'A', 6: 'B', 7: 'C#', b2: 'D#', b3: 'F', b5: 'G#', '#5': 'A#', b7: 'C' });      
     });    
   });  
 });

@@ -1,5 +1,7 @@
 // suggest tuning/chord to note parser for exercism.io
-// root notation takes flat or sharp?
+// var tuning = $('#tuning').value()
+// var root = $('#root').value()
+// var tuning = new Tuning(tuning, root)
 
 function Tuning(tuning, root) {
   this.name =  this.validateName(tuning);
