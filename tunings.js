@@ -105,7 +105,7 @@ Tuning.prototype.normalizeToFlat = function(notesArr) {
   "G#": "Ab"  
   };
 
-  var flattened = notesArr.slice();
+  var flattened = notesArr.slice();//global substitution
 
   for (var sharp in sharpToFlat) {
     if (sharpToFlat.hasOwnProperty(sharp) && flattened.indexOf(sharp) > -1) {

@@ -6,9 +6,9 @@
 // 2. Select chord to show intervals/notes for chord
 
 function Chord(name) {
-  this.name = name//this.name()
-  this.intervals = this.chordQuery(name)
-  this.notes = this.intervals
+  this.name = name;
+  this.intervals = this.chordQuery(name);
+  this.notes = this.intervals;
 };
 
 Chord.prototype.name = function(chordName) {
