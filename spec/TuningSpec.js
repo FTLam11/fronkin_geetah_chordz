@@ -65,20 +65,6 @@ describe("Tuning", function() {
     });
   });
 
-  describe("root", function() {
-    it("uppercases and returns the given root", function() {
-      eb = new Tuning("EbADGBE", "Eb");
-      expect(eb.root).toEqual("Eb");
-    });
-
-    it("throws an error when the root is invalid", function() {
-      impossible = function() {
-        impossibleRoot = new Tuning("EADGBE", "Ec");
-      };
-      expect(impossible).toThrow();      
-    })
-  });
-
   describe("intervals", function() {
     it("returns a mapping of note intervals to all flat normalized notes when the tuning contains a flat", function() {
       eb = new Tuning("EbADGBE", "Eb");

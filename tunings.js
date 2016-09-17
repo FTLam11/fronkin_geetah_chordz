@@ -5,11 +5,11 @@
 const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
 
 const FLAT_TO_SHARP = {
-  "Bb": "A#",
-  "Db": "C#",
-  "Eb": "D#",
-  "Gb": "F#",
-  "Ab": "G#"
+"Bb": "A#",
+"Db": "C#",
+"Eb": "D#",
+"Gb": "F#",
+"Ab": "G#"
 };
 
 const SHARP_TO_FLAT = {
@@ -138,8 +138,8 @@ function RootError(message) {
 
 // var notes = ["A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab"];
 
-var standard = new Tuning("EADGBE", "E");
+// var standard = new Tuning("EADGBE", "E");
 var eb = new Tuning("EbADGBE", "Eb");
-var americanFootball = new Tuning("FACGCE", "F");
-var algernonCadwallader = new Tuning("DAEAC#E", "D");
-var lute = new Tuning("EADF#BE", "E");
+// var americanFootball = new Tuning("FACGCE", "F");
+// var algernonCadwallader = new Tuning("DAEAC#E", "D");
+// var lute = new Tuning("EADF#BE", "E");
