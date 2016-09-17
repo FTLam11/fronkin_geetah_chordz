@@ -2,7 +2,23 @@
 // var tuning = $('#tuning').value()
 // var root = $('#root').value()
 // var tuning = new Tuning(tuning, root)
-const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"]
+const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
+
+const FLAT_TO_SHARP = {
+  "Bb": "A#",
+  "Db": "C#",
+  "Eb": "D#",
+  "Gb": "F#",
+  "Ab": "G#"
+};
+
+const SHARP_TO_FLAT = {
+"A#": "Bb",
+"C#": "Db",
+"D#": "Eb",
+"F#": "Gb",
+"G#": "Ab"  
+};
 
 function Tuning(tuning, root) {
   this.name =  this.validateName(tuning);
@@ -30,11 +46,11 @@ Tuning.prototype.validLength = function(tuning) {
 };
 
 Tuning.prototype.validChars = function(tuning) {
-  return (tuning.match(/[^A-Gb#]/) === null) 
+  return (tuning.match(/[^A-Gb#]/) === null); 
 };
 
 Tuning.prototype.validAccidentals = function(tuning) {
-  return (tuning.match(/^[#b]/) === null) && (tuning.match(/[BE]#/) === null) && (tuning.match(/[CF]b/) === null)
+  return (tuning.match(/^[#b]/) === null) && (tuning.match(/[BE]#/) === null) && (tuning.match(/[CF]b/) === null);
 };
 
 Tuning.prototype.parse = function() {
@@ -45,7 +61,7 @@ Tuning.prototype.parse = function() {
       tuningArr[i - 1] = tuningArr[i - 1] + "#";
     } else if (tuningArr[i] == "b") {
       tuningArr[i - 1] = tuningArr[i - 1] + "b";
-    }
+    };
   };
 
   return tuningArr.filter(function(char) {
@@ -77,19 +93,11 @@ Tuning.prototype.intervals = function() {
 };
 
 Tuning.prototype.normalizeToSharp = function(notesArr) {
-  var flatToSharp = {
-    "Bb": "A#",
-    "Db": "C#",
-    "Eb": "D#",
-    "Gb": "F#",
-    "Ab": "G#"
-  };
-
   var sharpened = notesArr.slice();
 
-  for (var flat in flatToSharp) {
-    if (flatToSharp.hasOwnProperty(flat) && sharpened.indexOf(flat) > -1) {
-      sharpened.splice(sharpened.indexOf(flat), 1, flatToSharp[flat]);
+  for (var i = 0; i < sharpened.length; i++) {
+    if (FLAT_TO_SHARP.hasOwnProperty(sharpened[i]) && Object.keys(FLAT_TO_SHARP).indexOf(sharpened[i]) > -1) {
+      sharpened.splice(i, 1, FLAT_TO_SHARP[sharpened[i]]);
     };
   };
 
@@ -97,19 +105,11 @@ Tuning.prototype.normalizeToSharp = function(notesArr) {
 };
 
 Tuning.prototype.normalizeToFlat = function(notesArr) {
-  var sharpToFlat = {
-  "A#": "Bb",
-  "C#": "Db",
-  "D#": "Eb",
-  "F#": "Gb",
-  "G#": "Ab"  
-  };
+  var flattened = notesArr.slice();
 
-  var flattened = notesArr.slice();//global substitution
-
-  for (var sharp in sharpToFlat) {
-    if (sharpToFlat.hasOwnProperty(sharp) && flattened.indexOf(sharp) > -1) {
-      flattened.splice(flattened.indexOf(sharp), 1, sharpToFlat[sharp]);
+  for (var i = 0; i < flattened.length; i++) {
+    if (SHARP_TO_FLAT.hasOwnProperty(flattened[i]) && Object.keys(SHARP_TO_FLAT).indexOf(flattened[i]) > -1) {
+      flattened.splice(i, 1, SHARP_TO_FLAT[flattened[i]]);
     };
   };
 

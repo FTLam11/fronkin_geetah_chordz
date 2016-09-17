@@ -42,21 +42,26 @@ describe("Tuning", function() {
   });
 
   describe("flattened", function() {
-    it("replaces all sharps with flats and returns a collection of individual notes that form the tuning", function() {
+    it("replaces each sharp with an equivalent flat and returns a collection of individual notes that form the tuning", function() {
       algernon = new Tuning("DAEAC#E", "D");
       expect(algernon.flattened).toEqual(["D", "A", "E", "A", "Db", "E"]);
+    });
+
+    it("replaces identical sharps with equivalent flats and returns a collection of individual notes that form the tuning", function() {
+      schizophrenia = new Tuning("F#F#GGAA", "F#");
+      expect(schizophrenia.flattened).toEqual(["Gb", "Gb", "G", "G", "A", "A"]);
     });
   });
 
   describe("sharpened", function() {
-    it("replaces all flats with sharps and returns a collection of individual notes that form the tuning", function() {
+    it("replaces each flat with an equivalent sharp and returns a collection of individual notes that form the tuning", function() {
       eb = new Tuning("EbADGBE", "Eb");
       expect(eb.sharpened).toEqual(["D#", "A", "D", "G", "B", "E"]);
     });
 
-    it("replaces identical flats with sharps and returns a collection of individual notes that form the tuning", function() {
-      sonic_youth = new Tuning("F#F#GGAA", "F#");
-      expect(sonic_youth.flattened).toEqual(["Gb", "Gb", "G", "G", "A", "A"]);
+    it("replaces identical flats with equivalent sharps and returns a collection of individual notes that form the tuning", function() {
+      becuz = new Tuning("GbGbGbGbEB", "Gb");
+      expect(becuz.sharpened).toEqual(["F#", "F#", "F#", "F#", "E", "B"]);
     });
   });
 
