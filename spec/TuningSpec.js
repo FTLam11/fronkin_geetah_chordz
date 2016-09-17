@@ -53,6 +53,11 @@ describe("Tuning", function() {
       eb = new Tuning("EbADGBE", "Eb");
       expect(eb.sharpened).toEqual(["D#", "A", "D", "G", "B", "E"]);
     });
+
+    it("replaces identical flats with sharps and returns a collection of individual notes that form the tuning", function() {
+      sonic_youth = new Tuning("F#F#GGAA", "F#");
+      expect(sonic_youth.flattened).toEqual(["Gb", "Gb", "G", "G", "A", "A"]);
+    });
   });
 
   describe("root", function() {
