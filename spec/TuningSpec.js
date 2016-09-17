@@ -29,7 +29,7 @@ describe("Tuning", function() {
     it("throws an error when the tuning has invalid notes", function() {
       impossible = function() {
         impossibleTuning = new Tuning("XZASWF", "E");
-      }
+      };
       expect(impossible).toThrow();
     });
   });
@@ -74,7 +74,7 @@ describe("Tuning", function() {
     it("throws an error when the root is invalid", function() {
       impossible = function() {
         impossibleRoot = new Tuning("EADGBE", "Ec");
-      }
+      };
       expect(impossible).toThrow();      
     })
   });
