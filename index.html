@@ -1,83 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Geetah Chordz</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script type="text/javascript" src="chords.js"></script>
-  <script type="text/javascript" src="tunings.js"></script>
-  <script type="text/javascript" src="application.js"></script>
+  <title>Fronkin Geetah Chordz</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="http://npmcdn.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="tuning/tuningFactory.js"></script>
+  <script type="text/javascript" src="geetah/geetahCtrl.js"></script>
 </head>
-<body>
-<h1>Fronkin Geetah Chordz</h1>
-  <div class="guitar-neck">
-    <div class="fret first"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>
-    <div class="fret"></div>  
-    
-    <ul class="dots">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <ul class="strings">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    
-    <ul class="open-notes">
-      <li class="low-e">E</li>
-      <li class="b">B</li>
-      <li class="g">G</li>
-      <li class="d">D</li>
-      <li class="a">A</li>
-      <li class="high-e">E</li>
-    </ul>
-    <div class="notes">
-      <div class="mask low-e"><ul></ul></div>
-      <div class="mask a"><ul></ul></div>
-      <div class="mask d"><ul></ul></div>
-      <div class="mask g"><ul></ul></div>
-      <div class="mask b"><ul></ul></div>
-      <div class="mask high-e"><ul></ul></div>
+
+<body ng-app="geetah">
+    <h1>Fronkin Geetah Chordz</h1>
+  <ui-view></ui-view>
+    <div class="guitar-neck">
+      <div class="fret first"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <div class="fret"></div>
+      <ul class="dots">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <ul class="strings">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <ul class="open-notes">
+        <li class="low-e">E</li>
+        <li class="b">B</li>
+        <li class="g">G</li>
+        <li class="d">D</li>
+        <li class="a">A</li>
+        <li class="high-e">E</li>
+      </ul>
+      <div class="notes">
+        <div class="mask low-e">
+          <ul></ul>
+        </div>
+        <div class="mask a">
+          <ul></ul>
+        </div>
+        <div class="mask d">
+          <ul></ul>
+        </div>
+        <div class="mask g">
+          <ul></ul>
+        </div>
+        <div class="mask b">
+          <ul></ul>
+        </div>
+        <div class="mask high-e">
+          <ul></ul>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  <div class="controls">
-    <a class="up" href="#">Tune 1/2 Step Up</a>
-    <a class="down" href="#">Tune 1/2 Step Down</a>
-    
-    <h2>Choose note to show:</h2>
-    <ul>
-      <li>All</li>
-      <li>A</li>
-      <li>A#</li>
-      <li>B</li>
-      <li>C</li>
-      <li>C#</li>
-      <li>D</li>
-      <li>D#</li>
-      <li>E</li>
-      <li>F</li>
-      <li>F#</li>
-      <li>G</li>
-      <li>G#</li>
-    </ul>
-  </div>
+    <div class="controls">
+      <a class="up" href="#">Tune 1/2 Step Up</a>
+      <a class="down" href="#">Tune 1/2 Step Down</a>
+      <h2>Choose note to show:</h2>
+      <ul>
+        <li>All</li>
+        <li>A</li>
+        <li>A#</li>
+        <li>B</li>
+        <li>C</li>
+        <li>C#</li>
+        <li>D</li>
+        <li>D#</li>
+        <li>E</li>
+        <li>F</li>
+        <li>F#</li>
+        <li>G</li>
+        <li>G#</li>
+      </ul>
+    </div>
 </body>
 </html>
