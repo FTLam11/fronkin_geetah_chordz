@@ -5,10 +5,11 @@
 // 1. Given a tuning show intervals/notes on fretboard
 // 2. Select chord to show intervals/notes for chord
 
-function Chord(name) {
+function Chord(name, root) {
   this.name = name;
   this.intervals = this.chordQuery(name);
   this.notes = this.intervals;
+  this.root = root;
 };
 
 Chord.prototype.name = function(chordName) {
