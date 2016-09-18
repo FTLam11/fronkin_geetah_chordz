@@ -1,6 +1,24 @@
 var tuning = angular.module('geetah');
 
 tuning.factory('Tuning', function() {
+  const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
+
+  const FLAT_TO_SHARP = {
+  "Bb": "A#",
+  "Db": "C#",
+  "Eb": "D#",
+  "Gb": "F#",
+  "Ab": "G#"
+  };
+
+  const SHARP_TO_FLAT = {
+  "A#": "Bb",
+  "C#": "Db",
+  "D#": "Eb",
+  "F#": "Gb",
+  "G#": "Ab"  
+  };
+  
   var Tuning = function(tuning, root) {
     this.name =  this.validateName(tuning);
     this.notes = this.parse(this.name);
