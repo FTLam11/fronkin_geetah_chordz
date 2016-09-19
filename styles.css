@@ -1,28 +1,30 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400);
+@import 'https://fonts.googleapis.com/css?family=Baloo+Bhaina';
 * {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 body {
-  background: #eee;
-  font-family: 'Source Sans Pro', sans-serif;
-  letter-spacing: 0.05em;
+  background: #5EB014;
+  font-family: 'Baloo Bhaina', sans-serif;
+  letter-spacing: 0.2em;
 }
 h1 {
   text-transform: uppercase;
   text-align: center;
   margin-top: 40px;
+  color: #CBF72D;
+  letter-spacing: 0.2em;
 }
 .guitar-neck {
   position: relative;
-  margin-top: 40px;
+  margin-top: 30px;
   left: 50%;
   margin-left: -450px;
   width: 960px;
-  height: 250px;
-  background: #755628;
-  box-shadow: inset -1px 0px 11px 0px rgba(0, 0, 0, 0.75);
+  height: 315px;
+  background: rgba(230, 193, 74, 0.93);
+  box-shadow: inset -1px 0px 11px 0px rgba(0, 0, 0, 0.4);
 }
 .guitar-neck .open-notes {
   position: absolute;
@@ -32,7 +34,7 @@ h1 {
 .guitar-neck .open-notes li {
   margin-bottom: 20px;
   font-size: 18px;
-  color: #fff;
+  color: #373a2e;
 }
 .guitar-neck .open-notes li.active {
   color: #fa990f;
@@ -40,7 +42,7 @@ h1 {
 .guitar-neck .fret {
   float: left;
   width: 3px;
-  height: 250px;
+  height: 315px;
   background: #d7d6d6;
   margin-left: 75px;
   border-right: 2px solid #686868;
@@ -51,7 +53,7 @@ h1 {
   left: -52px;
   top: 0;
   margin-left: 0;
-  background: #211f1d;
+  background: #F2F7B8;
 }
 .guitar-neck .dots {
   position: absolute;
@@ -71,7 +73,7 @@ h1 {
 .guitar-neck .strings {
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 15px;
   width: 960px;
   height: 250px;
 }
@@ -80,7 +82,7 @@ h1 {
   display: inline-block;
   width: 100%;
   background: #c8bb93;
-  margin-bottom: 38px;
+  margin-bottom: 40px;
   border-bottom: 2px solid #958963;
   box-sizing: border-box;
 }
