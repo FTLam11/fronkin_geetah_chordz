@@ -1,1 +1,37 @@
-<h2>{{tuning}}</h2>
+<div class="guitar-neck">
+  <div class="fret first"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <ul class="dots">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul class="strings">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul class="open-notes">
+    <li ng-repeat="note in openNotes | reverse track by $index">{{note}}</li>
+<!--     <li class="low-e">E</li>
+    <li class="b">B</li>
+    <li class="g">G</li>
+    <li class="d">D</li>
+    <li class="a">A</li>
+    <li class="high-e">E</li> -->
+  </ul>
