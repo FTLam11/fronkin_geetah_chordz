@@ -1,8 +1,10 @@
 function Fretboard(tuningNotesArr, notesArr) {
-  this.fretboard = this.drawNotes(tuningNotesArr, notesArr);
+  this.notes = this.populateNotes(tuningNotesArr, notesArr);
+  // this.coloredNotes = this.colorNotes(this.notes);
 };
 // inlays width ~ 775px
-Fretboard.prototype.drawNotes = function(tuningNotesArr, notesArr) {
+// should fretboard inherit tuning's intervals responsibility?
+Fretboard.prototype.populateNotes = function(tuningNotesArr, notesArr) {
   var strings = [[],[],[],[],[],[]];
   var currentNoteIndex = 0;
   var currentTuningNoteIndex = 0;
@@ -49,4 +51,4 @@ const COLOR_INTERVALS = {
   "6": "#220066",
   "b7": "#7F7F74",
   "7": "#330044"
-}
+};
