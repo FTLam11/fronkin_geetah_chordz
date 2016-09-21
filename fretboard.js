@@ -1,7 +1,7 @@
 function Fretboard(tuningNotesArr, notesArr) {
   this.fretboard = this.drawNotes(tuningNotesArr, notesArr);
-}
-
+};
+// inlays width ~ 775px
 Fretboard.prototype.drawNotes = function(tuningNotesArr, notesArr) {
   var strings = [[],[],[],[],[],[]];
   var currentNoteIndex = 0;
@@ -22,7 +22,31 @@ Fretboard.prototype.drawNotes = function(tuningNotesArr, notesArr) {
 
   return strings;
 };
-// Show notes for all frets
-// 
 
+Fretboard.prototype.colorIntervals = function(note, noteIntervalMapping) {
+  interval = this.intervalQuery(note, noteIntervalMapping)
+  return COLOR_INTERVALS[interval];
+};
 
+Fretboard.prototype.intervalQuery = function(note, noteIntervalMapping) {
+  for (var key in noteIntervalMapping) {
+    if (noteIntervalMapping[key] == note) {
+      return key;
+    };
+  };
+};
+
+const COLOR_INTERVALS = {
+  "1": "#d10000",
+  "b2": "#FFFDE7",
+  "2": "#ff6622",
+  "b3": "#E5E4D0",
+  "3": "#ffda21",
+  "4": "#33dd00",
+  "b5": "#BFBEAD",
+  "5": "#1133cc",
+  "#5": "#BAB9A9",
+  "6": "#220066",
+  "b7": "#7F7F74",
+  "7": "#330044"
+}
