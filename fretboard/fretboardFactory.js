@@ -1,19 +1,19 @@
 var fretboard = angular.module('geetah');
 
 fretboard.factory('Fretboard', function() {
-  var Fretboard = function(tuningNotesArr, notesArr) {
-  this.notes = this.populateNotes(tuningNotesArr, notesArr);
+  var Fretboard = function(tuningNotesArr) {
+  this.notes = this.populateNotes(tuningNotesArr);
   };
 
-  Fretboard.prototype.populateNotes = function(tuningNotesArr, notesArr) {
+  Fretboard.prototype.populateNotes = function(tuningNotesArr) {
     var strings = [[],[],[],[],[],[]];
     var currentNoteIndex = 0;
     var currentTuningNoteIndex = 0;
 
     for (var string = 0; string < 6; string++) {
-      currentNoteIndex = notesArr.indexOf(tuningNotesArr[currentTuningNoteIndex])
+      currentNoteIndex = SCALE.indexOf(tuningNotesArr[currentTuningNoteIndex])
       for (var fret = 0; fret < 12; fret++) {
-        strings[string][fret] = notesArr[currentNoteIndex];
+        strings[string][fret] = SCALE[currentNoteIndex];
         if (currentNoteIndex == 11) {
           currentNoteIndex = 0;
         } else {
@@ -53,6 +53,8 @@ fretboard.factory('Fretboard', function() {
     "b7": "#7F7F74",
     "7": "#330044"
   };
+
+  const SCALE = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
 
   return Fretboard;
 });
