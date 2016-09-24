@@ -16,14 +16,15 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scop
   $scope.root = '';
   $scope.chord = '';
   $scope.firstString = fretboard.notes[0];
-  $scope.secondString = "";
-  $scope.thirdString = "";
-  $scope.fourthString = "";
-  $scope.fifthString = "";
-  $scope.sixthString = "";
+  $scope.secondString = fretboard.notes[1];
+  $scope.thirdString = fretboard.notes[2];
+  $scope.fourthString = fretboard.notes[3];
+  $scope.fifthString = fretboard.notes[4];
+  $scope.sixthString = fretboard.notes[5];
 }]);
 
 // color code the notes 1..7 ROYGBIV
 // make a collection of objects with the interval, note, and color (ng-style)
 // draw -> clear -> draw
 // [{note: "E", interval: 1, color: "#ASDFEF"}]
+// show note or interval, hover over shows the other

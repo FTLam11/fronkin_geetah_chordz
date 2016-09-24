@@ -11,7 +11,7 @@ fretboard.factory('Fretboard', function() {
     var currentTuningNoteIndex = 0;
 
     for (var string = 0; string < 6; string++) {
-      currentNoteIndex = SCALE.indexOf(tuningNotesArr[currentTuningNoteIndex])
+      currentNoteIndex = SCALE.indexOf(tuningNotesArr[currentTuningNoteIndex]) + 1;
       for (var fret = 0; fret < 12; fret++) {
         strings[string][fret] = SCALE[currentNoteIndex];
         if (currentNoteIndex == 11) {
@@ -20,7 +20,7 @@ fretboard.factory('Fretboard', function() {
           currentNoteIndex++;
         };
       };
-      tuningNotesArr++;
+      currentTuningNoteIndex++;
     };
 
     return strings;

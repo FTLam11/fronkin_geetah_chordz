@@ -7,7 +7,7 @@
 body {
   background: #5EB014;
   font-family: 'Baloo Bhaina', sans-serif;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
 }
 h1 {
   text-transform: uppercase;
@@ -67,7 +67,7 @@ h1 {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #383530;
+  background: #989794;
   margin-right: 140px;
 }
 .guitar-neck .strings {
@@ -103,11 +103,10 @@ h1 {
 }
 .guitar-neck .notes {
   position: absolute;
-  left: 17px;
-  top: -7px;
+  left: 60px;
+  top: 50px;
   width: 960px;
   height: 258px;
-  overflow-x: hidden;
 }
 .guitar-neck .notes .mask {
   position: absolute;
@@ -133,19 +132,19 @@ h1 {
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
 }
 .guitar-neck .notes .mask.a {
-  bottom: 47px;
+  bottom: 50px;
 }
 .guitar-neck .notes .mask.d {
-  bottom: 93px;
+  bottom: 110px;
 }
 .guitar-neck .notes .mask.g {
-  bottom: 137px;
+  bottom: 170px;
 }
 .guitar-neck .notes .mask.b {
-  bottom: 181px;
+  bottom: 225px;
 }
 .guitar-neck .notes .mask.high-e {
-  bottom: 224px;
+  bottom: 275px;
 }
 .controls {
   position: relative;

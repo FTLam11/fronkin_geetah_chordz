@@ -21,7 +21,7 @@ Fretboard.prototype.populateNotes = function(tuningNotesArr) {
         currentNoteIndex++;
       };
     };
-    tuningNotesArr++;
+    currentTuningNoteIndex++;
   };
 
   return strings;
