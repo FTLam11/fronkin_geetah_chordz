@@ -70,6 +70,24 @@ h1 {
   background: #989794;
   margin-right: 140px;
 }
+.guitar-neck .top-inlay li {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #989794;
+  left: 910px;
+  top: 88px;
+}
+.guitar-neck .bottom-inlay li {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #989794;
+  left: 910px;
+  top: 204px;
+}
 .guitar-neck .strings {
   position: absolute;
   left: 0;
