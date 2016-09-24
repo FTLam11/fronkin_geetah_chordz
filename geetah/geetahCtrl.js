@@ -2,25 +2,32 @@ var geetah = angular.module('geetah');
 
 geetah.filter('reverse', function() {
   return function(notes) {
-    return notes.slice().reverse();
+    if (notes == undefined) {
+      return;
+    } else {
+      return notes.slice().reverse();
+    };
   };
 });
 
 geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scope, Tuning, Fretboard) {
-  var algernon = new Tuning('DAEAC#E', 'D');
-  var fretboard = new Fretboard(algernon.notes);
+  $scope.tuneItUp = function() {
+    console.log("hi")
+    $scope.tuning = new Tuning($scope.tuningForm, 'D');
+    $scope.fretboard = new Fretboard($scope.tuning.notes);
+    $scope.openNotes = $scope.tuning.notes;
+    $scope.firstString = $scope.fretboard.notes[0];
+    $scope.secondString = $scope.fretboard.notes[1];
+    $scope.thirdString = $scope.fretboard.notes[2];
+    $scope.fourthString = $scope.fretboard.notes[3];
+    $scope.fifthString = $scope.fretboard.notes[4];
+    $scope.sixthString = $scope.fretboard.notes[5];
+  };
 
-  $scope.colorMe = fretboard.intervalQuery;
-  $scope.intervals = algernon.intervals;
-  $scope.openNotes = algernon.notes;
+  // $scope.colorMe = fretboard.intervalQuery;
+  // $scope.intervals = $scope.tuning.intervals;
   $scope.root = '';
   $scope.chord = '';
-  $scope.firstString = fretboard.notes[0];
-  $scope.secondString = fretboard.notes[1];
-  $scope.thirdString = fretboard.notes[2];
-  $scope.fourthString = fretboard.notes[3];
-  $scope.fifthString = fretboard.notes[4];
-  $scope.sixthString = fretboard.notes[5];
 }]);
 
 // color code the notes 1..7 ROYGBIV
