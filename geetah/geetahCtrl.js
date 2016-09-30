@@ -12,7 +12,6 @@ geetah.filter('reverse', function() {
 
 geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scope, Tuning, Fretboard) {
   $scope.tuneItUp = function() {
-    console.log("hi")
     $scope.tuning = new Tuning($scope.tuningForm, 'D');
     $scope.fretboard = new Fretboard($scope.tuning.notes);
     $scope.openNotes = $scope.tuning.notes;
@@ -22,10 +21,10 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scop
     $scope.fourthString = $scope.fretboard.notes[3];
     $scope.fifthString = $scope.fretboard.notes[4];
     $scope.sixthString = $scope.fretboard.notes[5];
+    $scope.colorMe = $scope.fretboard.colorIntervals;
+    $scope.intervals = $scope.tuning.intervals;
   };
 
-  // $scope.colorMe = fretboard.intervalQuery;
-  // $scope.intervals = $scope.tuning.intervals;
   $scope.root = '';
   $scope.chord = '';
 }]);
