@@ -126,18 +126,18 @@ h1 {
   width: 960px;
   height: 258px;
 }
-.guitar-neck .notes .mask {
+.guitar-neck .notes .string {
   position: absolute;
   right: -189px;
   bottom: 0;
   width: 1184px;
   height: 30px;
 }
-.guitar-neck .notes .mask ul {
+.guitar-neck .notes .string ul {
   position: relative;
   float: left;
 }
-.guitar-neck .notes .mask ul li {
+.guitar-neck .notes .string ul li {
   float: left;
   width: 30px;
   height: 30px;
@@ -149,19 +149,19 @@ h1 {
   line-height: 30px;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
 }
-.guitar-neck .notes .mask.a {
+.guitar-neck .notes .string.a {
   bottom: 50px;
 }
-.guitar-neck .notes .mask.d {
+.guitar-neck .notes .string.d {
   bottom: 110px;
 }
-.guitar-neck .notes .mask.g {
+.guitar-neck .notes .string.g {
   bottom: 170px;
 }
-.guitar-neck .notes .mask.b {
+.guitar-neck .notes .string.b {
   bottom: 225px;
 }
-.guitar-neck .notes .mask.high-e {
+.guitar-neck .notes .string.high-e {
   bottom: 275px;
 }
 .controls {
@@ -186,7 +186,7 @@ h1 {
 }
 .controls h2 {
   text-transform: uppercase;
-  margin: 40px 0;
+  margin: 40px 0 0 0;
 }
 .controls ul li {
   float: left;
