@@ -3,7 +3,6 @@ var fretboard = angular.module('geetah');
 fretboard.factory('Fretboard', function() {
   var Fretboard = function(tuningNotesArr) {
   this.notes = this.populateNotes(tuningNotesArr);
-  this.intervalQuery = this.intervalQuery;
   this.colorIntervals = this.colorIntervals;
   };
 
@@ -28,6 +27,11 @@ fretboard.factory('Fretboard', function() {
     return strings;
   };
 
+  Fretboard.prototype.colorIntervals = function(note, noteIntervalMapping) {
+    interval = Fretboard.prototype.intervalQuery(note, noteIntervalMapping)
+    return COLOR_INTERVALS[interval];
+  };
+
   Fretboard.prototype.intervalQuery = function(note, noteIntervalMapping) {
     for (var key in noteIntervalMapping) {
       if (noteIntervalMapping[key] == note) {
@@ -35,12 +39,7 @@ fretboard.factory('Fretboard', function() {
       };
     };
   };
-
-  Fretboard.prototype.colorIntervals = function(note, noteIntervalMapping) {
-    interval = Fretboard.prototype.intervalQuery(note, noteIntervalMapping)
-    return COLOR_INTERVALS[interval];
-  };
-
+  
   const COLOR_INTERVALS = {
     "1": "#d10000",
     "b2": "#FFFDE7",
