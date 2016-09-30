@@ -1,4 +1,3 @@
-<h2>{{intervals}}</h2>
 <div class="guitar-neck">
   <div class="fret first"></div>
   <div class="fret"></div>
@@ -37,34 +36,34 @@
     <li ng-repeat="note in openNotes | reverse track by $index">{{note}}</li>
   </ul>
   <div class="notes">
-    <div class="mask low-e">
+    <div class="string low-e">
       <ul>
-        <li ng-repeat="note in firstString track by $index" ng-style="{background-color: note.color}">{{note}}</li>
+        <li ng-repeat="note in firstString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
       </ul>
     </div>
-    <div class="mask a">
+    <div class="string a">
       <ul>
-        <li ng-repeat="note in secondString track by $index" ng-style="{background-color: note.color}">{{note}}</li>
+        <li ng-repeat="note in secondString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
       </ul>
     </div>
-    <div class="mask d">
+    <div class="string d">
       <ul>
-        <li ng-repeat="note in thirdString track by $index" ng-style="{background-color: note.color}">{{note}}</li>
+        <li ng-repeat="note in thirdString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
       </ul>
     </div>
-    <div class="mask g">
+    <div class="string g">
       <ul>
-        <li ng-repeat="note in fourthString track by $index" ng-style="{background-color: note.color}">{{note}}</li>
+        <li ng-repeat="note in fourthString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
       </ul>
     </div>
-    <div class="mask b">
+    <div class="string b">
       <ul>
-        <li ng-repeat="note in fifthString track by $index" ng-style="{background-color: note.color}">{{note}}</li>
+        <li ng-repeat="note in fifthString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
       </ul>
     </div>
-    <div class="mask high-e">
+    <div class="string high-e">
       <ul>
-        <li ng-repeat="note in sixthString track by $index" ng-style="{background-color: note.color}">{{note}}</li>
+        <li ng-repeat="note in sixthString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
       </ul>
     </div>
   </div>
@@ -73,7 +72,7 @@
 <div class="controls">
   <a class="up" href="#">Tune 1/2 Step Up</a>
   <a class="down" href="#">Tune 1/2 Step Down</a>
-  <h2>Tune the guitar:</h2>
+  <h2>Tune the geetah:</h2>
   <form ng-submit="tuneItUp()">
     <input type="text" name="tuningForm" ng-model="tuningForm">
     <input type="submit" value="Tune It!">
