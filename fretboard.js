@@ -40,6 +40,13 @@ Fretboard.prototype.intervalQuery = function(note, noteIntervalMapping) {
   };
 };
 
+// Fretboard.prototype.colorNotes = function(notesStringArr) {
+//   var notesByColor = {}
+//   for (var i = 0; i < strings.length; i++) {
+//     strings[i]
+//   }
+// };
+
 const COLOR_INTERVALS = {
   "1": "#d10000",
   "b2": "#FFFDE7",
