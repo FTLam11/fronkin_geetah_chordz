@@ -74,8 +74,9 @@
   <a class="down" href="#">Tune 1/2 Step Down</a>
   <h2>Tune the geetah:</h2>
   <form ng-submit="tuneItUp()">
-    <input type="text" name="tuningForm" ng-model="tuningForm" ng-click="tuningForm = null" placeholder="e.g., GABDEG">
+    <input type="text" name="tuningForm" ng-model="tuningForm" placeholder="e.g., GABDEG">
     <select ng-model="root" ng-options="root for root in roots"></select>
     <input type="submit" value="Tune It!">
   </form>
+  <p>{{tuningErrors}}</p>
 </div>
