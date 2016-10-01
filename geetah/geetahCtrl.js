@@ -28,11 +28,12 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scop
     $scope.intervals = $scope.tuning.intervals;
   };
 
-  $scope.chord = '';
+  $scope.chords = ['maj7', 'min9'];
+  $scope.showChord = function() {
+    console.log("hello");
+  }
 }]);
 
-// color code the notes 1..7 ROYGBIV
-// make a collection of objects with the interval, note, and color (ng-style)
-// draw -> clear -> draw
 // [{note: "E", interval: 1, color: "#ASDFEF"}]
 // show note or interval, hover over shows the other
+// use divs/anchors for each chord, chord notes are shown using squares z index

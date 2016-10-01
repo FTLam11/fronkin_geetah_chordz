@@ -179,10 +179,6 @@ h1 {
   background: #333;
   color: #fff;
   padding: 5px 10px;
-  margin-right: 40px;
-}
-.controls a.down {
-  margin-right: 0;
 }
 .controls h2 {
   text-transform: uppercase;
@@ -199,4 +195,8 @@ h1 {
 }
 .controls ul li:last-child {
   margin-right: 0;
+}
+.chords {
+  display: inline-block;
+  margin: 0px 10px;
 }
