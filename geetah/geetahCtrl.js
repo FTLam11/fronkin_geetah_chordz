@@ -11,6 +11,7 @@ geetah.filter('reverse', function() {
 });
 
 geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scope, Tuning, Fretboard) {
+  $scope.tuningForm = "e.g., GABDEG";
   $scope.tuneItUp = function() {
     $scope.tuning = new Tuning($scope.tuningForm, 'D');
     $scope.fretboard = new Fretboard($scope.tuning.notes);

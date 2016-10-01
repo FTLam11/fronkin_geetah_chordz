@@ -200,3 +200,6 @@ h1 {
 .controls ul li:last-child {
   margin-right: 0;
 }
+input[type=text] {
+  color: grey;
+}
