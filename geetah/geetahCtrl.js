@@ -11,9 +11,11 @@ geetah.filter('reverse', function() {
 });
 
 geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scope, Tuning, Fretboard) {
-  $scope.tuningForm = "e.g., GABDEG";
+  $scope.root = "A";
+  $scope.roots = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+
   $scope.tuneItUp = function() {
-    $scope.tuning = new Tuning($scope.tuningForm, 'D');
+    $scope.tuning = new Tuning($scope.tuningForm, $scope.root);
     $scope.fretboard = new Fretboard($scope.tuning.notes);
     $scope.openNotes = $scope.tuning.notes;
     $scope.firstString = $scope.fretboard.notes[0];
@@ -26,7 +28,6 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scop
     $scope.intervals = $scope.tuning.intervals;
   };
 
-  $scope.root = '';
   $scope.chord = '';
 }]);
 
