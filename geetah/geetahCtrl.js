@@ -10,6 +10,15 @@ geetah.filter('reverse', function() {
   };
 });
 
+geetah.filter('accidentals', function() {
+  return function(openNotes) {
+    console.log("hi");
+    if (openNotes.some(note => note.match(/.{1}b/) != null)) {
+      Tuning.prototype.normalizeToFlat(openNotes);
+    };
+  };
+});
+
 geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scope, Tuning, Fretboard) {
   $scope.root = "A";
   $scope.roots = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
