@@ -1,7 +1,8 @@
 describe("Fretboard", function() {
   describe("notes", function() {
     beforeEach(function() {
-      testBoard = new Fretboard(["E", "A", "D", "G", "B", "E"], ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"])
+      testTuning = new Tuning("EADGBE", "E");
+      testBoard = new Fretboard(testTuning.notes, testTuning.intervals);
     });
 
     it("returns a mapping of notes to each fret for a string", function() {

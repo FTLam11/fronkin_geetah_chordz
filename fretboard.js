@@ -1,20 +1,19 @@
-const SCALE = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
-
-function Fretboard(tuningNotesArr) {
-  this.notes = this.populateNotes(tuningNotesArr);
-  // this.coloredNotes = this.colorNotes(this.notes);
+function Fretboard(tuningNotesArr, intervalNotesObj) {
+  this.notes = this.populateNotes(tuningNotesArr, intervalNotesObj);
 };
-// inlays width ~ 775px
-// should fretboard inherit tuning's intervals responsibility?  
-Fretboard.prototype.populateNotes = function(tuningNotesArr) {
+
+Fretboard.prototype.populateNotes = function(tuningNotesArr, intervalNotesObj) {
   var strings = [[],[],[],[],[],[]];
   var currentNoteIndex = 0;
   var currentTuningNoteIndex = 0;
+  var scale = Object.keys(intervalNotesObj).map(function(key) {
+    return intervalNotesObj[key];
+  }).sort();
 
   for (var string = 0; string < 6; string++) {
-    currentNoteIndex = SCALE.indexOf(tuningNotesArr[currentTuningNoteIndex])
+    currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex])
     for (var fret = 0; fret < 12; fret++) {
-      strings[string][fret] = SCALE[currentNoteIndex];
+      strings[string][fret] = scale[currentNoteIndex];
       if (currentNoteIndex == 11) {
         currentNoteIndex = 0;
       } else {
