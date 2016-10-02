@@ -16,7 +16,7 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scop
 
   $scope.tuneItUp = function() {
     $scope.tuning = new Tuning($scope.tuningForm, $scope.root);
-    $scope.fretboard = new Fretboard($scope.tuning.notes);
+    $scope.fretboard = new Fretboard($scope.tuning.notes, $scope.tuning.intervals);
     $scope.openNotes = $scope.tuning.notes;
     $scope.firstString = $scope.fretboard.notes[0];
     $scope.secondString = $scope.fretboard.notes[1];

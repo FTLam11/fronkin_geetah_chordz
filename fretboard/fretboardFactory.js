@@ -1,20 +1,22 @@
 var fretboard = angular.module('geetah');
 
 fretboard.factory('Fretboard', function() {
-  var Fretboard = function(tuningNotesArr) {
-  this.notes = this.populateNotes(tuningNotesArr);
-  this.colorIntervals = this.colorIntervals;
+  var Fretboard = function(tuningNotesArr, intervalNotesObj) {
+  this.notes = this.populateNotes(tuningNotesArr, intervalNotesObj);
   };
 
-  Fretboard.prototype.populateNotes = function(tuningNotesArr) {
+  Fretboard.prototype.populateNotes = function(tuningNotesArr, intervalNotesObj) {
     var strings = [[],[],[],[],[],[]];
     var currentNoteIndex = 0;
     var currentTuningNoteIndex = 0;
+    var scale = Object.keys(intervalNotesObj).map(function(key) {
+      return intervalNotesObj[key];
+    }).sort();
 
     for (var string = 0; string < 6; string++) {
-      currentNoteIndex = SCALE.indexOf(tuningNotesArr[currentTuningNoteIndex]) + 1;
+      currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex]) + 1;
       for (var fret = 0; fret < 12; fret++) {
-        strings[string][fret] = SCALE[currentNoteIndex];
+        strings[string][fret] = scale[currentNoteIndex];
         if (currentNoteIndex == 11) {
           currentNoteIndex = 0;
         } else {
@@ -28,7 +30,7 @@ fretboard.factory('Fretboard', function() {
   };
 
   Fretboard.prototype.colorIntervals = function(note, noteIntervalMapping) {
-    interval = Fretboard.prototype.intervalQuery(note, noteIntervalMapping)
+    interval = Fretboard.prototype.intervalQuery(note, noteIntervalMapping);
     return COLOR_INTERVALS[interval];
   };
 
@@ -39,7 +41,7 @@ fretboard.factory('Fretboard', function() {
       };
     };
   };
-  
+
   const COLOR_INTERVALS = {
     "1": "#d10000",
     "b2": "#FFFDE7",
@@ -53,9 +55,7 @@ fretboard.factory('Fretboard', function() {
     "6": "#220066",
     "b7": "#7F7F74",
     "7": "#330044"
-  };
-
-  const SCALE = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+  };  
 
   return Fretboard;
 });
