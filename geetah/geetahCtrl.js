@@ -11,8 +11,8 @@ geetah.filter('reverse', function() {
 });
 
 geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scope, Tuning, Fretboard) {
-  $scope.root = "A";
-  $scope.roots = ["A", "A#", "Bb", "B", "C", "C#", "Db", "D", "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"];
+  $scope.tuningRoot = "A";
+  $scope.tuningRoots = ["A", "A#", "Bb", "B", "C", "C#", "Db", "D", "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"];
 
   $scope.tuneItUp = function() {
     $scope.tuning = new Tuning($scope.tuningForm, $scope.root);
@@ -29,11 +29,18 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scop
   };
 
   $scope.chords = ['maj7', 'min9'];
+  $scope.chordRoot = "A";
+  $scope.chordRoots = $scope.tuningRoots.slice();
   $scope.showChord = function() {
     console.log("hello");
-  }
+  };
+  $scope.setChordRoot = function(chordRoot) {
+    $scope.chordRoot = chordRoot;
+    console.log($scope.chordRoot);
+    //highlight currently selected chord root, reset all others once a selection is made
+  };
 }]);
 
-// [{note: "E", interval: 1, color: "#ASDFEF"}]
+// [{note: "E", interval: 1, color: "#ASDFEF", chordInterval: 3}]
 // show note or interval, hover over shows the other
 // use divs/anchors for each chord, chord notes are shown using squares z index
