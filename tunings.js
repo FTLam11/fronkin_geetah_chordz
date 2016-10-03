@@ -20,21 +20,6 @@ const SHARP_TO_FLAT = {
 "G#": "Ab"  
 };
 
-const COLOR_INTERVALS = {
-  "1": "#d10000",
-  "b2": "#FFFDE7",
-  "2": "#ff6622",
-  "b3": "#E5E4D0",
-  "3": "#ffda21",
-  "4": "#33dd00",
-  "b5": "#BFBEAD",
-  "5": "#1133cc",
-  "#5": "#BAB9A9",
-  "6": "#220066",
-  "b7": "#7F7F74",
-  "7": "#330044"
-};
-
 function Tuning(tuning, root) {
   this.name =  this.validateName(tuning);
   this.notes = this.parse(this.name);

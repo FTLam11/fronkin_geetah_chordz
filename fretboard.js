@@ -1,12 +1,12 @@
-function Fretboard(tuningNotesArr, intervalNotesObj) {
-  this.notes = this.populateNotes(tuningNotesArr, intervalNotesObj);
+function Fretboard(tuningNotesArr, noteObjDetails) {
+  this.notes = this.populateNotes(tuningNotesArr, noteObjDetails);
 };
 
-Fretboard.prototype.populateNotes = function(tuningNotesArr, intervalNotesObj) {
+Fretboard.prototype.populateNotes = function(tuningNotesArr, noteObjDetails) {
   var strings = [[],[],[],[],[],[]];
   var currentNoteIndex = 0;
   var currentTuningNoteIndex = 0;
-  var scale = this.generateScale(intervalNotesObj);
+  var scale = this.generateScale(noteObjDetails);
 
   for (var string = 0; string < 6; string++) {
     currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex])
@@ -37,11 +37,11 @@ Fretboard.prototype.intervalQuery = function(note, noteIntervalMapping) {
   };
 };
 
-Fretboard.prototype.generateScale = function(intervalNotesObj) {
+Fretboard.prototype.generateScale = function(noteObjDetails) {
   var scale = [];
 
-  for (var i = 0; i < INTERVAL_SYMBOLS.length; i++) {
-    scale.push(intervalNotesObj[INTERVAL_SYMBOLS[i]]);
+  for (var i = 0; i < noteObjDetails.length; i++) {
+    scale.push(noteObjDetails[i].note);
   };
 
   return scale;

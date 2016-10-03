@@ -16,13 +16,6 @@ describe("Fretboard", function() {
     });
   });
 
-  describe("coloredNotes", function() {
-    xit("returns a mapping of colors to each note", function() {
-      testBoard = new Fretboard(["E", "A", "D", "G", "B", "E"], ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"])
-      expect(testBoard.coloredNotes).toEqual();
-    });
-  });
-
   describe("colorIntervals()", function() {
     it("returns a color hex code based on the interval of the given note", function() {
       standard = new Tuning("EADGBE", "E");
