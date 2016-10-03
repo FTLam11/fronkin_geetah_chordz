@@ -70,18 +70,19 @@
 </div>
 
 <div class="controls">
-  <div class="chords" ng-repeat="chordRoot in chordRoots">
-    <a class="root" ng-click="setChordRoot(chordRoot)">{{chordRoot}}</a>
-  </div>
-  <div class="chords" ng-repeat="chord in chords">
-    <a class="chord" ng-click="showChord()">{{chord}}</a>
-  </div>
   <h2>Tune the geetah:</h2>
   <form ng-submit="tuneItUp()">
     <input type="text" name="tuningForm" ng-model="tuningForm" placeholder="e.g., GABDEG">
     <select ng-model="tuningRoot" ng-options="root for root in tuningRoots"></select>
     <input type="submit" value="Tune It!">
   </form>
+  <h2>Select a chord root and chord:</h2>
+  <div class="chords" ng-repeat="chordRoot in chordRoots">
+    <a class="root" ng-click="setChordRoot(chordRoot)">{{chordRoot}}</a>
+  </div>
+  <div class="chords" ng-repeat="chord in chords">
+    <a class="chord" ng-click="showChord()">{{chord}}</a>
+  </div>
   <h2>Features in progress:</h2>
   <ol>
     <li>Enable tuning and chord functionality for flat notes</li>
