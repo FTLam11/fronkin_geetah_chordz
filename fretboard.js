@@ -41,7 +41,6 @@ Fretboard.prototype.generateScale = function(intervalNotesObj) {
   var scale = [];
 
   for (var i = 0; i < INTERVAL_SYMBOLS.length; i++) {
-    console.log(INTERVAL_SYMBOLS[i]);
     scale.push(intervalNotesObj[INTERVAL_SYMBOLS[i]]);
   };
 
