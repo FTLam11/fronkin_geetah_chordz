@@ -66,14 +66,18 @@ describe("Tuning", function() {
   });
 
   describe("intervals", function() {
-    it("returns a mapping of note intervals to all flat normalized notes when the tuning contains a flat", function() {
-      eb = new Tuning("EbADGBE", "Eb");
-      expect(eb.intervals).toEqual({ 1: 'Eb', 2: 'F', 3: 'G', 4: 'Ab', 5: 'Bb', 6: 'C', 7: 'D', b2: 'E', b3: 'Gb', b5: 'A', '#5': 'B', b7: 'Db' });      
+    describe("when the tuning contains a flat, it normalizes all notes with sharps to flats and", function() {
+      it("returns a collection of objects describing a note, interval, color, and chord interval", function() {
+        eb = new Tuning("EbADGBE", "Eb");
+        expect(eb.intervals).toEqual([{ note: 'Eb', interval: '1', color: '#d10000', chordInterval: undefined }, { note: 'E', interval: 'b2', color: '#FFFDE7', chordInterval: undefined }, { note: 'F', interval: '2', color: '#ff6622', chordInterval: undefined }, { note: 'Gb', interval: 'b3', color: '#E5E4D0', chordInterval: undefined }, { note: 'G', interval: '3', color: '#ffda21', chordInterval: undefined }, { note: 'Ab', interval: '4', color: '#33dd00', chordInterval: undefined }, { note: 'A', interval: 'b5', color: '#BFBEAD', chordInterval: undefined }, { note: 'Bb', interval: '5', color: '#1133cc', chordInterval: undefined }, { note: 'B', interval: '#5', color: '#BAB9A9', chordInterval: undefined }, { note: 'C', interval: '6', color: '#220066', chordInterval: undefined }, { note: 'Db', interval: 'b7', color: '#7F7F74', chordInterval: undefined }, { note: 'D', interval: '7', color: '#330044', chordInterval: undefined }]);
+      });
     });
 
-    it("returns a mapping of note intervals to all sharp normalized notes when the tuning contains a sharp", function() {
-      algernon = new Tuning("DAEAC#E", "D");
-      expect(algernon.intervals).toEqual({ 1: 'D', 2: 'E', 3: 'F#', 4: 'G', 5: 'A', 6: 'B', 7: 'C#', b2: 'D#', b3: 'F', b5: 'G#', '#5': 'A#', b7: 'C' });      
-    });    
+    describe("when the tuning contains a sharp, it normalizes all notes with flats to sharps and", function() {
+      it("returns a mapping of note intervals to all sharp normalized notes when the tuning contains a sharp", function() {
+        algernon = new Tuning("DAEAC#E", "D");
+        expect(algernon.intervals).toEqual([{ note: 'D', interval: '1', color: '#d10000', chordInterval: undefined }, { note: 'D#', interval: 'b2', color: '#FFFDE7', chordInterval: undefined }, { note: 'E', interval: '2', color: '#ff6622', chordInterval: undefined }, { note: 'F', interval: 'b3', color: '#E5E4D0', chordInterval: undefined }, { note: 'F#', interval: '3', color: '#ffda21', chordInterval: undefined }, { note: 'G', interval: '4', color: '#33dd00', chordInterval: undefined }, { note: 'G#', interval: 'b5', color: '#BFBEAD', chordInterval: undefined }, { note: 'A', interval: '5', color: '#1133cc', chordInterval: undefined }, { note: 'A#', interval: '#5', color: '#BAB9A9', chordInterval: undefined }, { note: 'B', interval: '6', color: '#220066', chordInterval: undefined }, { note: 'C', interval: 'b7', color: '#7F7F74', chordInterval: undefined }, { note: 'C#', interval: '7', color: '#330044', chordInterval: undefined }]);      
+      });
+    });
   });  
 });
