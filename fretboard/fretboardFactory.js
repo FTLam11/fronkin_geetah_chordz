@@ -2,7 +2,7 @@ var fretboard = angular.module('geetah');
 
 fretboard.factory('Fretboard', function() {
   const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
-  
+
   var Fretboard = function(tuningNotesArr, intervalNotesObj) {
   this.notes = this.populateNotes(tuningNotesArr, intervalNotesObj);
   };
@@ -15,6 +15,9 @@ fretboard.factory('Fretboard', function() {
 
     for (var string = 0; string < 6; string++) {
       currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex]) + 1;
+      if (currentNoteIndex > 11) {
+        currentNoteIndex = 11;
+      }; 
       for (var fret = 0; fret < 12; fret++) {
         strings[string][fret] = scale[currentNoteIndex];
         if (currentNoteIndex == 11) {
@@ -54,17 +57,17 @@ fretboard.factory('Fretboard', function() {
 
   const COLOR_INTERVALS = {
     "1": "#d10000",
-    "b2": "#FFFDE7",
+    "b2": "#E5E4D0",
     "2": "#ff6622",
-    "b3": "#E5E4D0",
+    "b3": "#BFBEAD",
     "3": "#ffda21",
     "4": "#33dd00",
-    "b5": "#BFBEAD",
+    "b5": "#BAB9A9",
     "5": "#1133cc",
-    "#5": "#BAB9A9",
+    "#5": "#7F7F74",
     "6": "#220066",
-    "b7": "#7F7F74",
-    "7": "#330044"
+    "b7": "#42423D",
+    "7": "#60007F"
   };  
 
   return Fretboard;

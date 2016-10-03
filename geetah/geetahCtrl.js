@@ -10,18 +10,9 @@ geetah.filter('reverse', function() {
   };
 });
 
-geetah.filter('accidentals', function() {
-  return function(openNotes) {
-    console.log("hi");
-    if (openNotes.some(note => note.match(/.{1}b/) != null)) {
-      Tuning.prototype.normalizeToFlat(openNotes);
-    };
-  };
-});
-
 geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scope, Tuning, Fretboard) {
   $scope.root = "A";
-  $scope.roots = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+  $scope.roots = ["A", "A#", "Bb", "B", "C", "C#", "Db", "D", "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"];
 
   $scope.tuneItUp = function() {
     $scope.tuning = new Tuning($scope.tuningForm, $scope.root);
