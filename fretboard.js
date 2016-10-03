@@ -11,7 +11,7 @@ Fretboard.prototype.populateNotes = function(tuningNotesArr, noteObjDetails) {
   for (var string = 0; string < 6; string++) {
     currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex])
     for (var fret = 0; fret < 12; fret++) {
-      strings[string][fret] = scale[currentNoteIndex];
+      strings[string][fret] = noteObjDetails[currentNoteIndex];
       if (currentNoteIndex == 11) {
         currentNoteIndex = 0;
       } else {
