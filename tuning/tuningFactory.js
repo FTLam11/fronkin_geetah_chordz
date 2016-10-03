@@ -92,19 +92,11 @@ tuning.factory('Tuning', function() {
   };
 
   Tuning.prototype.normalizeToSharp = function(notesArr) {
-    var flatToSharp = {
-      "Bb": "A#",
-      "Db": "C#",
-      "Eb": "D#",
-      "Gb": "F#",
-      "Ab": "G#"
-    };
-
     var sharpened = notesArr.slice();
 
-    for (var flat in flatToSharp) {
-      if (flatToSharp.hasOwnProperty(flat) && sharpened.indexOf(flat) > -1) {
-        sharpened.splice(sharpened.indexOf(flat), 1, flatToSharp[flat]);
+    for (var flat in FLAT_TO_SHARP) {
+      if (FLAT_TO_SHARP.hasOwnProperty(flat) && sharpened.indexOf(flat) > -1) {
+        sharpened.splice(sharpened.indexOf(flat), 1, FLAT_TO_SHARP[flat]);
       };
     };
 
@@ -112,19 +104,11 @@ tuning.factory('Tuning', function() {
   };
 
   Tuning.prototype.normalizeToFlat = function(notesArr) {
-    var sharpToFlat = {
-    "A#": "Bb",
-    "C#": "Db",
-    "D#": "Eb",
-    "F#": "Gb",
-    "G#": "Ab"  
-    };
-
     var flattened = notesArr.slice();
 
-    for (var sharp in sharpToFlat) {
-      if (sharpToFlat.hasOwnProperty(sharp) && flattened.indexOf(sharp) > -1) {
-        flattened.splice(flattened.indexOf(sharp), 1, sharpToFlat[sharp]);
+    for (var sharp in SHARP_TO_FLAT) {
+      if (SHARP_TO_FLAT.hasOwnProperty(sharp) && flattened.indexOf(sharp) > -1) {
+        flattened.splice(flattened.indexOf(sharp), 1, SHARP_TO_FLAT[sharp]);
       };
     };
 
