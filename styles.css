@@ -140,13 +140,11 @@ h1 {
 .guitar-neck .notes .string ul li {
   float: left;
   width: 30px;
-  height: 30px;
   margin-right: 50px;
   background: #fa990f;
   color: #fff;
   border-radius: 50%;
   text-align: center;
-  line-height: 30px;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
 }
 .guitar-neck .notes .string.a {
@@ -168,17 +166,14 @@ h1 {
   position: relative;
   margin-top: 40px;
   left: 50%;
-  margin-left: -380px;
-  width: 760px;
+  margin-left: -420px;
+  width: 850px;
   height: 300px;
   text-align: center;
-  color: #333;
+  color: #CBF72D;
 }
 .controls a {
   text-decoration: none;
-  background: #333;
-  color: #fff;
-  padding: 5px 10px;
 }
 .controls h2 {
   text-transform: uppercase;
@@ -196,7 +191,21 @@ h1 {
 .controls ul li:last-child {
   margin-right: 0;
 }
-.chords {
+.options {
   display: inline-block;
-  margin: 0px 10px;
+  margin: 10px 10px;
+}
+.root {
+  width: 28px;
+  height: 28px;
+  background: black;
+  border: 1px solid #CBF72D;
+  color: #fff;
+}
+.chord-type {
+  width: 80px;
+  height: 28px;
+  background: #7dbf31;
+  border: 1px solid #CBF72D;
+  color: #fff;
 }

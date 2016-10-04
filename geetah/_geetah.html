@@ -77,13 +77,13 @@
     <input type="submit" value="Tune It!">
   </form>
   <h2>Select a chord root and chord:</h2>
-  <div class="chords" ng-repeat="chordRoot in chordRoots">
-    <a class="root" ng-click="setChordRoot(chordRoot)">{{chordRoot}}</a>
+  <div class="options" ng-repeat="chordRoot in chordRoots">
+    <a ng-click="setChordRoot(chordRoot)"><div class="root">{{chordRoot}}</div></a>
   </div>
-  <div class="chords" ng-repeat="chord in chords">
-    <a class="chord" ng-click="showChord()">{{chord}}</a>
+  <div class="options" ng-repeat="chord in chords">
+    <a ng-click="showChord()"><div class="chord-type">{{chord}}</div></a>
   </div>
-  <h2>Features in progress:</h2>
+  <h2>In progress:</h2>
   <ol>
     <li>Enable tuning and chord functionality for flat notes</li>
   </ol>
