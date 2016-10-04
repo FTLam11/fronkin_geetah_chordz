@@ -19,6 +19,21 @@ tuning.factory('Tuning', function() {
   "G#": "Ab"  
   };
   
+  const COLOR_INTERVALS = {
+    "1": "#d10000",
+    "b2": "#E5E4D0",
+    "2": "#ff6622",
+    "b3": "#BFBEAD",
+    "3": "#ffda21",
+    "4": "#33dd00",
+    "b5": "#BAB9A9",
+    "5": "#1133cc",
+    "#5": "#7F7F74",
+    "6": "#220066",
+    "b7": "#42423D",
+    "7": "#60007F"
+  };
+
   var Tuning = function(tuning, root) {
     this.name =  this.validateName(tuning);
     this.notes = this.parse(this.name);
@@ -75,11 +90,16 @@ tuning.factory('Tuning', function() {
       notes = this.normalizeToFlat(notes);
     };
 
-    var intervalToNote = {};
+    var noteObjDetails = [];
     var currentNoteIndex = notes.indexOf(this.root);
     
     for (var i = 0; i < 12; i++) {
-      intervalToNote[INTERVAL_SYMBOLS[i]] = notes[currentNoteIndex];
+      var noteObj = {};
+      noteObj['note'] = notes[currentNoteIndex];
+      noteObj['interval'] = INTERVAL_SYMBOLS[i];
+      noteObj['color'] = COLOR_INTERVALS[INTERVAL_SYMBOLS[i]];
+      noteObj['chordInterval'] = undefined;
+      noteObjDetails.push(noteObj);
 
       if (currentNoteIndex == 11) {
         currentNoteIndex = 0;
@@ -88,7 +108,7 @@ tuning.factory('Tuning', function() {
       };
     };
 
-    return intervalToNote;
+    return noteObjDetails;
   };
 
   Tuning.prototype.normalizeToSharp = function(notesArr) {

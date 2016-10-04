@@ -3,15 +3,15 @@ var fretboard = angular.module('geetah');
 fretboard.factory('Fretboard', function() {
   const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
 
-  var Fretboard = function(tuningNotesArr, intervalNotesObj) {
-  this.notes = this.populateNotes(tuningNotesArr, intervalNotesObj);
+  var Fretboard = function(tuningNotesArr, noteObjDetails) {
+  this.notes = this.populateNotes(tuningNotesArr, noteObjDetails);
   };
 
-  Fretboard.prototype.populateNotes = function(tuningNotesArr, intervalNotesObj) {
+  Fretboard.prototype.populateNotes = function(tuningNotesArr, noteObjDetails) {
     var strings = [[],[],[],[],[],[]];
     var currentNoteIndex = 0;
     var currentTuningNoteIndex = 0;
-    var scale = Fretboard.prototype.generateScale(intervalNotesObj);
+    var scale = Fretboard.prototype.generateScale(noteObjDetails);
 
     for (var string = 0; string < 6; string++) {
       currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex]) + 1;
@@ -19,7 +19,7 @@ fretboard.factory('Fretboard', function() {
         currentNoteIndex = 11;
       }; 
       for (var fret = 0; fret < 12; fret++) {
-        strings[string][fret] = scale[currentNoteIndex];
+        strings[string][fret] = noteObjDetails[currentNoteIndex];
         if (currentNoteIndex == 11) {
           currentNoteIndex = 0;
         } else {
@@ -45,11 +45,11 @@ fretboard.factory('Fretboard', function() {
     };
   };
 
-  Fretboard.prototype.generateScale = function(intervalNotesObj) {
+  Fretboard.prototype.generateScale = function(noteObjDetails) {
     var scale = [];
 
-    for (var i = 0; i < INTERVAL_SYMBOLS.length; i++) {
-      scale.push(intervalNotesObj[INTERVAL_SYMBOLS[i]]);
+    for (var i = 0; i < noteObjDetails.length; i++) {
+      scale.push(noteObjDetails[i].note);
     };
 
     return scale;

@@ -38,32 +38,32 @@
   <div class="notes">
     <div class="string low-e">
       <ul>
-        <li ng-repeat="note in firstString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
+        <li ng-repeat="note in firstString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string a">
       <ul>
-        <li ng-repeat="note in secondString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
+        <li ng-repeat="note in secondString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string d">
       <ul>
-        <li ng-repeat="note in thirdString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
+        <li ng-repeat="note in thirdString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string g">
       <ul>
-        <li ng-repeat="note in fourthString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
+        <li ng-repeat="note in fourthString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string b">
       <ul>
-        <li ng-repeat="note in fifthString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
+        <li ng-repeat="note in fifthString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string high-e">
       <ul>
-        <li ng-repeat="note in sixthString track by $index" ng-style="{background: colorMe(note, intervals)}">{{note}}</li>
+        <li ng-repeat="note in sixthString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
   </div>
