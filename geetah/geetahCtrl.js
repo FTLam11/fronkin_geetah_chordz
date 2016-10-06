@@ -18,7 +18,6 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
   $scope.chordRoots = $scope.tuningRoots.slice();
 
   $scope.tuneItUp = function() {
-    clearFretboard();
     $scope.tuning = new Tuning($scope.tuningForm, $scope.tuningRoot);
     $scope.fretboard = new Fretboard($scope.tuning.notes, $scope.tuning.intervals);
     $scope.openNotes = $scope.tuning.notes;
@@ -29,16 +28,6 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
     $scope.fifthString = $scope.fretboard.notes[4];
     $scope.sixthString = $scope.fretboard.notes[5];
   };
-
-  function clearFretboard() {
-    $scope.openNotes = null;
-    $scope.firstString = null;
-    $scope.secondString = null;
-    $scope.thirdString = null;
-    $scope.fourthString = null;
-    $scope.fifthString = null;
-    $scope.sixthString = null;
-  }
 
   $scope.showInterval = function(note) {
     if (note.showInterval == true) {
