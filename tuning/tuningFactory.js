@@ -99,6 +99,7 @@ tuning.factory('Tuning', function() {
       noteObj['interval'] = INTERVAL_SYMBOLS[i];
       noteObj['color'] = COLOR_INTERVALS[INTERVAL_SYMBOLS[i]];
       noteObj['chordInterval'] = undefined;
+      noteObj['showInterval'] = false;
       noteObjDetails.push(noteObj);
 
       if (currentNoteIndex == 11) {
