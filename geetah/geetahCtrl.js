@@ -41,8 +41,12 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scop
   }
 
   $scope.showInterval = function(note) {
-    
-  }
+    if (note.showInterval == true) {
+      return note.interval;
+    } else {
+      return note.note;
+    };
+  };
 
   $scope.showChord = function() {
     console.log("hello");
