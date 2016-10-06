@@ -33,37 +33,37 @@
     <li></li>
   </ul>
   <ul class="open-notes">
-    <li ng-repeat="note in openNotes | reverse track by $index">{{note}}</li>
+    <li class="fade" ng-repeat="note in openNotes | reverse track by $index">{{note}}</li>
   </ul>
   <div class="notes">
     <div class="string low-e">
       <ul>
-        <li class="animate-repeat" ng-repeat="note in firstString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in firstString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string a">
       <ul>
-        <li class="animate-repeat" ng-repeat="note in secondString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in secondString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string d">
       <ul>
-        <li class="animate-repeat" ng-repeat="note in thirdString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in thirdString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string g">
       <ul>
-        <li class="animate-repeat" ng-repeat="note in fourthString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in fourthString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string b">
       <ul>
-        <li class="animate-repeat" ng-repeat="note in fifthString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in fifthString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
     <div class="string high-e">
       <ul>
-        <li class="animate-repeat" ng-repeat="note in sixthString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in sixthString track by $index" ng-style="{background: note.color}">{{note.note}}</li>
       </ul>
     </div>
   </div>
@@ -76,7 +76,7 @@
     <select ng-model="tuningRoot" ng-options="root for root in tuningRoots"></select>
     <input type="submit" value="Tune It!">
   </form>
-  <h2>Select a chord root and chord:</h2>
+  <h2>Select a chord root and chord type:</h2>
   <div class="options" ng-repeat="chordRoot in chordRoots">
     <a ng-click="setChordRoot(chordRoot)"><div class="root">{{chordRoot}}</div></a>
   </div>
