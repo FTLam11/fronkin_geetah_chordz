@@ -9,7 +9,7 @@ Fretboard.prototype.populateNotes = function(tuningNotesArr, noteObjDetails) {
   var scale = this.generateScale(noteObjDetails);
 
   for (var string = 0; string < 6; string++) {
-    currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex])
+    currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex]);
     for (var fret = 0; fret < 12; fret++) {
       strings[string][fret] = noteObjDetails[currentNoteIndex];
       if (currentNoteIndex == 11) {
@@ -25,7 +25,7 @@ Fretboard.prototype.populateNotes = function(tuningNotesArr, noteObjDetails) {
 };
 
 Fretboard.prototype.colorIntervals = function(note, noteIntervalMapping) {
-  interval = this.intervalQuery(note, noteIntervalMapping)
+  interval = this.intervalQuery(note, noteIntervalMapping);
   return COLOR_INTERVALS[interval];
 };
 

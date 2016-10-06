@@ -48,5 +48,4 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
   };
 }]);
 
-// show note or interval, hover over shows the other
 // use divs/anchors for each chord, chord notes are shown using squares z index
