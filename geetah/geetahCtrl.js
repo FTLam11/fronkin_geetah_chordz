@@ -28,8 +28,6 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', function($scop
     $scope.fourthString = $scope.fretboard.notes[3];
     $scope.fifthString = $scope.fretboard.notes[4];
     $scope.sixthString = $scope.fretboard.notes[5];
-    $scope.colorMe = $scope.fretboard.colorIntervals;
-    $scope.intervals = $scope.tuning.intervals;
   };
 
   function clearFretboard() {
