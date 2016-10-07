@@ -162,6 +162,10 @@ h1 {
 .guitar-neck .notes .string.high-e {
   bottom: 275px;
 }
+.chord-note {
+  border-radius: 0 !important;
+  outline-style: dashed;
+}
 .controls {
   position: relative;
   margin-top: 40px;

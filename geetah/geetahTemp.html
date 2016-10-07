@@ -38,32 +38,32 @@
   <div class="notes">
     <div class="string low-e">
       <ul>
-        <li class="animate-repeat rotate" ng-repeat="note in firstString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in firstString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false" ng-class="{'chord-note': note.chordInterval == true}">{{showInterval(note)}}</li>
       </ul>
     </div>
     <div class="string a">
       <ul>
-        <li class="animate-repeat rotate" ng-repeat="note in secondString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in secondString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false" ng-class="{'chord-note': note.chordInterval == true}">{{showInterval(note)}}</li>
       </ul>
     </div>
     <div class="string d">
       <ul>
-        <li class="animate-repeat rotate" ng-repeat="note in thirdString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in thirdString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false" ng-class="{'chord-note': note.chordInterval == true}">{{showInterval(note)}}</li>
       </ul>
     </div>
     <div class="string g">
       <ul>
-        <li class="animate-repeat rotate" ng-repeat="note in fourthString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in fourthString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false" ng-class="{'chord-note': note.chordInterval == true}">{{showInterval(note)}}</li>
       </ul>
     </div>
     <div class="string b">
       <ul>
-        <li class="animate-repeat rotate" ng-repeat="note in fifthString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in fifthString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false" ng-class="{'chord-note': note.chordInterval == true}">{{showInterval(note)}}</li>
       </ul>
     </div>
     <div class="string high-e">
       <ul>
-        <li class="animate-repeat rotate" ng-repeat="note in sixthString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+        <li class="animate-repeat rotate" ng-repeat="note in sixthString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false" ng-class="{'chord-note': note.chordInterval == true}">{{showInterval(note)}}</li>
       </ul>
     </div>
   </div>
@@ -80,8 +80,8 @@
   <div class="options" ng-repeat="chordRoot in chordRoots">
     <a ng-click="setChordRoot(chordRoot)"><div class="root">{{chordRoot}}</div></a>
   </div>
-  <div class="options" ng-repeat="chord in chords">
-    <a ng-click="showChord()"><div class="chord-type">{{chord}}</div></a>
+  <div class="options" ng-repeat="chordType in chordTypes">
+    <a ng-click="showChord(chordType)"><div class="chord-type">{{chordType}}</div></a>
   </div>
   <h2>In progress:</h2>
   <ol>
