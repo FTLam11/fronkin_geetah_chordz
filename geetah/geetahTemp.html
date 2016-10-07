@@ -70,11 +70,11 @@
 </div>
 
 <div class="controls">
-  <h2>Tune the geetah:</h2>
+  <h2>Enter a tuning and select a key:</h2>
   <form ng-submit="tuneItUp()">
-    <input type="text" name="tuningForm" ng-model="tuningForm" placeholder="e.g., GABDEG">
-    <select ng-model="tuningRoot" ng-options="root for root in tuningRoots"></select>
-    <input type="submit" value="Tune It!">
+    <input class="input-tuning" type="text" name="tuningForm" ng-model="tuningForm" placeholder="e.g., GABDEG">
+    <select class="input-tuning" ng-model="tuningRoot" ng-options="root for root in tuningRoots"></select>
+    <input class="input-tuning" type="submit" value="Tune It!">
   </form>
   <h2>Select a chord root and chord type:</h2>
   <div class="options" ng-repeat="chordRoot in chordRoots">
@@ -83,9 +83,5 @@
   <div class="options" ng-repeat="chordType in chordTypes">
     <a ng-click="showChord(chordType)"><div class="chord-type" ng-class="{'control-selected': chordType == currentChordType}">{{chordType}}</div></a>
   </div>
-  <h2>In progress:</h2>
-  <ol>
-    <li>Add chord display</li>
-    <li>Sync hover behavior for notes and open notes?</li>
-  </ol>
+  <p>Made with TONGZHI power by Frank Lam 2016</p>
 </div>

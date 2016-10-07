@@ -146,6 +146,7 @@ h1 {
   border-radius: 50%;
   text-align: center;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
 }
 .guitar-neck .notes .string.a {
   bottom: 50px;
@@ -201,6 +202,7 @@ h1 {
 .options {
   display: inline-block;
   margin: 10px 10px;
+  cursor: pointer;
 }
 .root {
   width: 28px;
@@ -215,4 +217,28 @@ h1 {
   background: #7dbf31;
   border: 1px solid #CBF72D;
   color: #fff;
+}
+.input-tuning {
+  padding: 10px 20px;
+  border: 1px solid #b7b7b7;
+  border-radius: 3px;
+  color: #CBF72D;
+  text-overflow: clip;
+  background: #5EB014;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+  font-size: larger;
+}
+::-webkit-input-placeholder { /* Chrome */
+  color: #CBF72D;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #CBF72D;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #CBF72D;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: #CBF72D;
+  opacity: 1;
 }
