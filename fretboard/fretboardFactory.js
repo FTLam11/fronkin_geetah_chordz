@@ -16,7 +16,7 @@ fretboard.factory('Fretboard', function() {
     for (var string = 0; string < 6; string++) {
       currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex]) + 1;
       if (currentNoteIndex > 11) {
-        currentNoteIndex = 11;
+        currentNoteIndex = 0;
       }; 
       for (var fret = 0; fret < 12; fret++) {
         strings[string][fret] = noteObjDetails[currentNoteIndex];
