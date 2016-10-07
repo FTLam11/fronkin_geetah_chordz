@@ -10,10 +10,10 @@ geetah.filter('reverse', function() {
   };
 });
 
-geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory', function($scope, Tuning, Fretboard, GeetahFactory) {
+geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory', 'Chord', function($scope, Tuning, Fretboard, GeetahFactory, Chord) {
   $scope.tuningRoot = "A";
   $scope.tuningRoots =  GeetahFactory.tuningRoots;
-  $scope.chords = GeetahFactory.chordTypes;
+  $scope.chordTypes = GeetahFactory.chordTypes;
   $scope.chordRoot = "A";
   $scope.chordRoots = $scope.tuningRoots.slice();
 
@@ -37,13 +37,14 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
     };
   };
 
-  $scope.showChord = function() {
-    var chord = new Tuning($scope.tuningForm, $scope.chordRoot);
+  $scope.showChord = function(chordType) {
+    var chord = new Chord($scope.chordRoot, chordType);
+    var chordNotes = chord.notes;
     /*
       1. Give root and type
       2. Use chord formula to return intervals
       3. Translate each interval to a note, include equivalent intervals
-      4. Iterate through each note on the fretboard to highlight notes of the chord
+      4. Iterate through $scope.fretboard.notes to highlight notes of the chord
     */
   };
 

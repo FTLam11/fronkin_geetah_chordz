@@ -80,8 +80,8 @@
   <div class="options" ng-repeat="chordRoot in chordRoots">
     <a ng-click="setChordRoot(chordRoot)"><div class="root">{{chordRoot}}</div></a>
   </div>
-  <div class="options" ng-repeat="chord in chords">
-    <a ng-click="showChord()"><div class="chord-type">{{chord}}</div></a>
+  <div class="options" ng-repeat="chordType in chordTypes">
+    <a ng-click="showChord(chordType)"><div class="chord-type">{{chordType}}</div></a>
   </div>
   <h2>In progress:</h2>
   <ol>
