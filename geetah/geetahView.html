@@ -1,0 +1,91 @@
+<div class="guitar-neck">
+  <div class="fret first"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <div class="fret"></div>
+  <ul class="top-inlay">
+    <li></li>
+  </ul>
+  <ul class="dots">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul class="bottom-inlay">
+    <li></li>
+  </ul>
+  <ul class="strings">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul class="open-notes">
+    <li class="fade" ng-repeat="note in openNotes | reverse track by $index">{{note}}</li>
+  </ul>
+  <div class="notes">
+    <div class="string low-e">
+      <ul>
+        <li class="animate-repeat rotate" ng-repeat="note in firstString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+      </ul>
+    </div>
+    <div class="string a">
+      <ul>
+        <li class="animate-repeat rotate" ng-repeat="note in secondString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+      </ul>
+    </div>
+    <div class="string d">
+      <ul>
+        <li class="animate-repeat rotate" ng-repeat="note in thirdString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+      </ul>
+    </div>
+    <div class="string g">
+      <ul>
+        <li class="animate-repeat rotate" ng-repeat="note in fourthString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+      </ul>
+    </div>
+    <div class="string b">
+      <ul>
+        <li class="animate-repeat rotate" ng-repeat="note in fifthString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+      </ul>
+    </div>
+    <div class="string high-e">
+      <ul>
+        <li class="animate-repeat rotate" ng-repeat="note in sixthString track by $index" ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false">{{showInterval(note)}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <h2>Tune the geetah:</h2>
+  <form ng-submit="tuneItUp()">
+    <input type="text" name="tuningForm" ng-model="tuningForm" placeholder="e.g., GABDEG">
+    <select ng-model="tuningRoot" ng-options="root for root in tuningRoots"></select>
+    <input type="submit" value="Tune It!">
+  </form>
+  <h2>Select a chord root and chord type:</h2>
+  <div class="options" ng-repeat="chordRoot in chordRoots">
+    <a ng-click="setChordRoot(chordRoot)"><div class="root">{{chordRoot}}</div></a>
+  </div>
+  <div class="options" ng-repeat="chord in chords">
+    <a ng-click="showChord()"><div class="chord-type">{{chord}}</div></a>
+  </div>
+  <h2>In progress:</h2>
+  <ol>
+    <li>Add chord display</li>
+    <li>Sync hover behavior for notes and open notes?</li>
+  </ol>
+</div>
