@@ -1,3 +1,13 @@
+const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
+
+const SHARP_TO_FLAT = {
+"A#": "Bb",
+"C#": "Db",
+"D#": "Eb",
+"F#": "Gb",
+"G#": "Ab"  
+};
+
 function Chord(root, type) {
   this.name = root + type;
   this.intervals = this.chordQuery(type);
@@ -7,7 +17,33 @@ function Chord(root, type) {
 
 Chord.prototype.getNotes = function(intervals) {
   var notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+  var currentNoteIndex = notes.indexOf(this.root);
+  var intervalNoteArr = [];
+
+  for (var i = 0; i < INTERVAL_SYMBOLS.length; i++) {
+    var noteObj = {};
+    noteObj['note'] = [notes[currentNoteIndex]];
+    noteObj['interval'] = INTERVAL_SYMBOLS[i];
+
+    if (notes[currentNoteIndex].match(/.{1}#/) != null) {
+      noteObj['note'].push(SHARP_TO_FLAT[notes[currentNoteIndex]]);
+    };
+
+    for (var i = 0; i < intervals.length; i++) {
+      if (noteObj['interval'] == intervals[i]) {
+        intervalNoteArr.push(noteObj);
+      };
+    };
+
+
+    if (currentNoteIndex == 11) {
+      currentNoteIndex = 0;
+    } else {
+      currentNoteIndex++;
+    };
+  };
   
+  return intervalNoteArr;
 };
 
 Chord.prototype.chordQuery = function(type) {
