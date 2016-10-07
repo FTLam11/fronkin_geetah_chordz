@@ -1,6 +1,6 @@
 describe("Chord", function() {
   beforeEach(function() {
-    testChord = new Chord("maj7", "C");
+    testChord = new Chord("C", "maj7");
   });
 
   describe("name", function() {

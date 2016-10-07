@@ -1,4 +1,4 @@
-function Chord(type, root) {
+function Chord(root, type) {
   this.name = root + type;
   this.intervals = this.chordQuery(type);
   this.notes = this.intervals;

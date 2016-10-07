@@ -38,13 +38,17 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
   };
 
   $scope.showChord = function() {
-    console.log("hello");
+    var chord = new Tuning($scope.tuningForm, $scope.chordRoot);
+    /*
+      1. Give root and type
+      2. Use chord formula to return intervals
+      3. Translate each interval to a note, include equivalent intervals
+      4. Iterate through each note on the fretboard to highlight notes of the chord
+    */
   };
 
   $scope.setChordRoot = function(chordRoot) {
     $scope.chordRoot = chordRoot;
-    console.log($scope.chordRoot);
-    //highlight currently selected chord root, reset all others once a selection is made
   };
 }]);
 
