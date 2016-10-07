@@ -1,16 +1,13 @@
 function Chord(root, type) {
   this.name = root + type;
   this.intervals = this.chordQuery(type);
-  this.notes = this.intervals;
   this.root = root;
+  this.notes = this.getNotes(this.intervals);
 };
 
-Chord.prototype.intervals = function(first_argument) {
-  // body...
-};
-
-Chord.prototype.mapToFretBoard = function(first_argument) {
-  // body...
+Chord.prototype.getNotes = function(intervals) {
+  var notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+  
 };
 
 Chord.prototype.chordQuery = function(type) {
