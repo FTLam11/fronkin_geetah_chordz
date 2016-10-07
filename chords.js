@@ -1,5 +1,13 @@
 const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
 
+const FLAT_TO_SHARP = {
+"Bb": "A#",
+"Db": "C#",
+"Eb": "D#",
+"Gb": "F#",
+"Ab": "G#"
+};
+
 const SHARP_TO_FLAT = {
 "A#": "Bb",
 "C#": "Db",
@@ -16,7 +24,7 @@ function Chord(root, type) {
 };
 
 Chord.prototype.getNotes = function(intervals) {
-  var notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+  var notes = ["A", "A#", "Bb", "B", "C", "C#", "Db", "D", "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"];
   var currentNoteIndex = notes.indexOf(this.root);
   var intervalNoteArr = [];
 
@@ -29,6 +37,10 @@ Chord.prototype.getNotes = function(intervals) {
       
         if (notes[currentNoteIndex].match(/.{1}#/) != null) {
           noteObj['note'].push(SHARP_TO_FLAT[notes[currentNoteIndex]]);
+        };
+
+        if (notes[currentNoteIndex].match(/.{1}b/) != null) {
+          noteObj['note'].push(FLAT_TO_SHARP[notes[currentNoteIndex]]);
         };
 
         intervalNoteArr.push(noteObj);

@@ -39,6 +39,14 @@ chord.factory('Chord', function() {
 
   const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
 
+  const FLAT_TO_SHARP = {
+  "Bb": "A#",
+  "Db": "C#",
+  "Eb": "D#",
+  "Gb": "F#",
+  "Ab": "G#"
+  };
+
   const SHARP_TO_FLAT = {
   "A#": "Bb",
   "C#": "Db",
@@ -56,8 +64,12 @@ chord.factory('Chord', function() {
 
   Chord.prototype.getNotes = function(intervals) {
     var notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
-    var currentNoteIndex = notes.indexOf(this.root);
     var intervalNoteArr = [];
+    var currentNoteIndex = notes.indexOf(this.root);
+    
+    if (currentNoteIndex == -1) {
+      currentNoteIndex = notes.indexOf(FLAT_TO_SHARP[this.root]);
+    };
 
     for (var i = 0; i < INTERVAL_SYMBOLS.length; i++) {
       for (var j = 0; j < intervals.length; j++) {
