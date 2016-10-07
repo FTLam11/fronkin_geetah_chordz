@@ -4,7 +4,7 @@ geetah.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
   $stateProvider
     .state('geetah', {
       url: '/',
-      templateUrl: '/fronkin_geetah_chordz/geetah/_geetah.html',
+      templateUrl: '/fronkin_geetah_chordz/geetah/geetahTemp.html',
       controller: 'GeetahCtrl'
     });
 
