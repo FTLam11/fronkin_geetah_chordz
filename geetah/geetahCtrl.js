@@ -38,6 +38,8 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
   };
 
   $scope.showChord = function(chordType) {
+    $scope.currentChordType = chordType;
+    $scope.tuneItUp();
     var chord = new Chord($scope.chordRoot, chordType);
     var chordNotes = chord.notes;
 
@@ -54,8 +56,8 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
   };
 
   $scope.setChordRoot = function(chordRoot) {
+    $scope.currentChordRoot = chordRoot;
     $scope.chordRoot = chordRoot;
+    $scope.currentChordType = null;
   };
 }]);
-
-// use divs/anchors for each chord, chord notes are shown using squares z index
