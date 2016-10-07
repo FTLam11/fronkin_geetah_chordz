@@ -40,12 +40,17 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
   $scope.showChord = function(chordType) {
     var chord = new Chord($scope.chordRoot, chordType);
     var chordNotes = chord.notes;
-    /*
-      1. Give root and type
-      2. Use chord formula to return intervals
-      3. Translate each interval to a note, include equivalent intervals
-      4. Iterate through $scope.fretboard.notes to highlight notes of the chord
-    */
+
+    for (var string = 0; string < $scope.fretboard.notes.length; string++) {
+      for (var fret = 0; fret < $scope.fretboard.notes[string].length; fret++) {
+        for (var interval = 0; interval < chordNotes.length; interval++) {
+          if (chordNotes[interval].note.some(note => note == $scope.fretboard.notes[string][fret].note) || chordNotes[interval].note.some(note => note == $scope.fretboard.notes[string][fret].note - 7)) {
+            $scope.fretboard.notes[string][fret].chordInterval = true;
+            console.log($scope.fretboard.notes[string][fret]);
+          };
+        };
+      };
+    };
   };
 
   $scope.setChordRoot = function(chordRoot) {
