@@ -48,7 +48,6 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
         for (var interval = 0; interval < chordNotes.length; interval++) {
           if (chordNotes[interval].note.some(note => note == $scope.fretboard.notes[string][fret].note) || chordNotes[interval].note.some(note => note == $scope.fretboard.notes[string][fret].note - 7)) {
             $scope.fretboard.notes[string][fret].chordInterval = true;
-            console.log($scope.fretboard.notes[string][fret]);
           };
         };
       };
