@@ -29,12 +29,11 @@ Chord.prototype.getNotes = function(intervals) {
       noteObj['note'].push(SHARP_TO_FLAT[notes[currentNoteIndex]]);
     };
 
-    for (var i = 0; i < intervals.length; i++) {
-      if (noteObj['interval'] == intervals[i]) {
+    for (var j = 0; j < intervals.length; j++) {
+      if (noteObj['interval'] == intervals[j]) {
         intervalNoteArr.push(noteObj);
       };
     };
-
 
     if (currentNoteIndex == 11) {
       currentNoteIndex = 0;
