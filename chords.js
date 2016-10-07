@@ -22,15 +22,16 @@ Chord.prototype.getNotes = function(intervals) {
 
   for (var i = 0; i < INTERVAL_SYMBOLS.length; i++) {
     var noteObj = {};
-    noteObj['note'] = [notes[currentNoteIndex]];
-    noteObj['interval'] = INTERVAL_SYMBOLS[i];
-
-    if (notes[currentNoteIndex].match(/.{1}#/) != null) {
-      noteObj['note'].push(SHARP_TO_FLAT[notes[currentNoteIndex]]);
-    };
-
+    
     for (var j = 0; j < intervals.length; j++) {
-      if (noteObj['interval'] == intervals[j]) {
+      if (INTERVAL_SYMBOLS[i] == intervals[j]) {
+        noteObj['note'] = [notes[currentNoteIndex]];
+        noteObj['interval'] = INTERVAL_SYMBOLS[i];
+      
+        if (notes[currentNoteIndex].match(/.{1}#/) != null) {
+          noteObj['note'].push(SHARP_TO_FLAT[notes[currentNoteIndex]]);
+        };
+
         intervalNoteArr.push(noteObj);
       };
     };
