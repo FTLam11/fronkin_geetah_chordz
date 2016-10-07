@@ -78,10 +78,10 @@
   </form>
   <h2>Select a chord root and chord type:</h2>
   <div class="options" ng-repeat="chordRoot in chordRoots">
-    <a ng-click="setChordRoot(chordRoot)"><div class="root">{{chordRoot}}</div></a>
+    <a ng-click="setChordRoot(chordRoot)"><div class="root" ng-class="{'control-selected': chordRoot == currentChordRoot}">{{chordRoot}}</div></a>
   </div>
   <div class="options" ng-repeat="chordType in chordTypes">
-    <a ng-click="showChord(chordType)"><div class="chord-type">{{chordType}}</div></a>
+    <a ng-click="showChord(chordType)"><div class="chord-type" ng-class="{'control-selected': chordType == currentChordType}">{{chordType}}</div></a>
   </div>
   <h2>In progress:</h2>
   <ol>

@@ -166,6 +166,9 @@ h1 {
   border-radius: 0 !important;
   outline-style: dashed;
 }
+.control-selected {
+  outline-style: dashed;
+}
 .controls {
   position: relative;
   margin-top: 40px;
