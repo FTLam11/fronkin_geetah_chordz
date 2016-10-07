@@ -43,7 +43,7 @@ geetah.controller('GeetahCtrl', ['$scope', 'Tuning', 'Fretboard', 'GeetahFactory
       1. Give root and type
       2. Use chord formula to return intervals
       3. Translate each interval to a note, include equivalent intervals
-      4. Iterate through each note on the fretboard to highlight notes of the chord (chordInterval boolean)
+      4. Iterate through each note on the fretboard to highlight notes of the chord
     */
   };
 

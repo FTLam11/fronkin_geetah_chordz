@@ -4,7 +4,7 @@ geetah.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
   $stateProvider
     .state('geetah', {
       url: '/',
-      templateUrl: '/geetah/geetahView.html',
+      templateUrl: '/geetah/_geetah.html',
       controller: 'GeetahCtrl'
     });
 
