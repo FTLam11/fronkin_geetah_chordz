@@ -10,3 +10,7 @@ Visualize chords based on their note degrees in alternate tunings. Fronkin Geeta
 2.  Select a root note
 3.  Tune it!
 4.  Select a chord to view its notes across the fretboard 
+
+## notes
+
+See the [github wiki](https://github.com/FTLam11/fronkin_geetah_chordz/wiki) for more information!
