@@ -92,7 +92,15 @@ tuning.factory('Tuning', function() {
 
     var noteObjDetails = [];
     var currentNoteIndex = notes.indexOf(this.root);
+
+    if (currentNoteIndex == -1) {
+      currentNoteIndex = notes.indexOf(SHARP_TO_FLAT[this.root]);
+    };
     
+    if (currentNoteIndex == -1) {
+      currentNoteIndex = notes.indexOf(FLAT_TO_SHARP[this.root]);
+    };
+
     for (var i = 0; i < 12; i++) {
       var noteObj = {};
       noteObj['note'] = notes[currentNoteIndex];
