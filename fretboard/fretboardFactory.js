@@ -17,23 +17,23 @@ fretboard.factory('Fretboard', function() {
     "7": "#60007F"
   };  
 
-  var Fretboard = function(tuningNotesArr, noteObjDetails) {
-  this.notes = this.populateNotes(tuningNotesArr, noteObjDetails);
+  var Fretboard = function(tuningOpenNotes, tuningNoteIntervals) {
+  this.notes = this.populateNotes(tuningOpenNotes, tuningNoteIntervals);
   };
 
-  Fretboard.prototype.populateNotes = function(tuningNotesArr, noteObjDetails) {
+  Fretboard.prototype.populateNotes = function(tuningOpenNotes, tuningNoteIntervals) {
     var strings = [[],[],[],[],[],[]];
     var currentNoteIndex = 0;
     var currentTuningNoteIndex = 0;
-    var scale = Fretboard.prototype.generateScale(noteObjDetails);
+    var scale = Fretboard.prototype.generateScale(tuningNoteIntervals);
 
     for (var string = 0; string < 6; string++) {
-      currentNoteIndex = scale.indexOf(tuningNotesArr[currentTuningNoteIndex]) + 1;
+      currentNoteIndex = scale.indexOf(tuningOpenNotes[currentTuningNoteIndex]) + 1;
       if (currentNoteIndex > 11) {
         currentNoteIndex = 0;
       }; 
       for (var fret = 0; fret < 12; fret++) {
-        strings[string][fret] = noteObjDetails[currentNoteIndex];
+        strings[string][fret] = tuningNoteIntervals[currentNoteIndex];
         if (currentNoteIndex == 11) {
           currentNoteIndex = 0;
         } else {
@@ -46,11 +46,11 @@ fretboard.factory('Fretboard', function() {
     return strings;
   };
 
-  Fretboard.prototype.generateScale = function(noteObjDetails) {
+  Fretboard.prototype.generateScale = function(tuningNoteIntervals) {
     var scale = [];
 
-    for (var i = 0; i < noteObjDetails.length; i++) {
-      scale.push(noteObjDetails[i].note);
+    for (var i = 0; i < tuningNoteIntervals.length; i++) {
+      scale.push(tuningNoteIntervals[i].note);
     };
 
     return scale;
