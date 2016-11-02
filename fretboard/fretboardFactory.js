@@ -2,6 +2,7 @@ var fretboard = angular.module('geetah');
 
 fretboard.factory('Fretboard', function() {
   const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
+  
   const COLOR_INTERVALS = {
     "1": "#d10000",
     "b2": "#E5E4D0",

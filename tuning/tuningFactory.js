@@ -37,14 +37,8 @@ tuning.factory('Tuning', function() {
   var Tuning = function(tuning, root) {
     this.name =  this.validateName(tuning);
     this.notes = this.parse(this.name);
-    this.flattened = this.normalizeToFlat(this.notes);
-    this.sharpened = this.normalizeToSharp(this.notes);
     this.root = this.validateRoot(root);
     this.intervals = this.intervals();
-  };
-
-  Tuning.prototype.tuningToArr = function() {
-    return this.name.split('');
   };
 
   Tuning.prototype.validateName = function(tuning) {
@@ -68,7 +62,7 @@ tuning.factory('Tuning', function() {
   };
 
   Tuning.prototype.parse = function() {
-    var tuningArr = this.tuningToArr();
+    var tuningArr = this.name.split('');
 
     for (var i = 0; i < tuningArr.length; i++) {
       if (tuningArr[i] == "#") {
@@ -90,7 +84,7 @@ tuning.factory('Tuning', function() {
       notes = this.normalizeToFlat(notes);
     };
 
-    var noteObjDetails = [];
+    var tuningNoteIntervals = [];
     var currentNoteIndex = notes.indexOf(this.root);
 
     if (currentNoteIndex == -1) {
@@ -108,7 +102,7 @@ tuning.factory('Tuning', function() {
       noteObj['color'] = COLOR_INTERVALS[INTERVAL_SYMBOLS[i]];
       noteObj['chordInterval'] = undefined;
       noteObj['showInterval'] = false;
-      noteObjDetails.push(noteObj);
+      tuningNoteIntervals.push(noteObj);
 
       if (currentNoteIndex == 11) {
         currentNoteIndex = 0;
@@ -117,19 +111,7 @@ tuning.factory('Tuning', function() {
       };
     };
 
-    return noteObjDetails;
-  };
-
-  Tuning.prototype.normalizeToSharp = function(notesArr) {
-    var sharpened = notesArr.slice();
-
-    for (var flat in FLAT_TO_SHARP) {
-      if (FLAT_TO_SHARP.hasOwnProperty(flat) && sharpened.indexOf(flat) > -1) {
-        sharpened.splice(sharpened.indexOf(flat), 1, FLAT_TO_SHARP[flat]);
-      };
-    };
-
-    return sharpened;  
+    return tuningNoteIntervals;
   };
 
   Tuning.prototype.normalizeToFlat = function(notesArr) {
