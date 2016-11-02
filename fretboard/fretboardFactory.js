@@ -46,19 +46,6 @@ fretboard.factory('Fretboard', function() {
     return strings;
   };
 
-  Fretboard.prototype.colorIntervals = function(note, noteIntervalMapping) {
-    interval = Fretboard.prototype.intervalQuery(note, noteIntervalMapping);
-    return COLOR_INTERVALS[interval];
-  };
-
-  Fretboard.prototype.intervalQuery = function(note, noteIntervalMapping) {
-    for (var key in noteIntervalMapping) {
-      if (noteIntervalMapping[key] == note) {
-        return key;
-      };
-    };
-  };
-
   Fretboard.prototype.generateScale = function(noteObjDetails) {
     var scale = [];
 
