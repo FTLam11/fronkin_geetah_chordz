@@ -47,11 +47,9 @@ fretboard.factory('Fretboard', function() {
   };
 
   Fretboard.prototype.generateScale = function(tuningNoteIntervals) {
-    var scale = [];
-
-    for (var i = 0; i < tuningNoteIntervals.length; i++) {
-      scale.push(tuningNoteIntervals[i].note);
-    };
+    scale = tuningNoteIntervals.map(function(obj) {
+      return obj.note;
+    })
 
     return scale;
   };
