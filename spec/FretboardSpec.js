@@ -15,18 +15,4 @@ describe("Fretboard", function() {
       expect(numStrings).toEqual(6);
     });
   });
-
-  describe("colorIntervals()", function() {
-    it("returns a color hex code based on the interval of the given note", function() {
-      standard = new Tuning("EADGBE", "E");
-      expect(Fretboard.prototype.colorIntervals("E", standard.intervals)).toEqual(COLOR_INTERVALS["1"]);
-    });
-  });
-
-  describe("intervalQuery()", function() {
-    it("returns the interval of the given note", function() {
-      standard = new Tuning("EADGBE", "E");
-      expect(Fretboard.prototype.intervalQuery("E", standard.intervals)).toEqual("1");
-    });
-  });
 });
