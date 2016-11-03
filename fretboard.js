@@ -24,19 +24,6 @@ Fretboard.prototype.populateNotes = function(tuningNotesArr, tuningNoteIntervals
   return strings;
 };
 
-Fretboard.prototype.colorIntervals = function(note, noteIntervalMapping) {
-  interval = this.intervalQuery(note, noteIntervalMapping);
-  return COLOR_INTERVALS[interval];
-};
-
-Fretboard.prototype.intervalQuery = function(note, noteIntervalMapping) {
-  for (var key in noteIntervalMapping) {
-    if (noteIntervalMapping[key] == note) {
-      return key;
-    };
-  };
-};
-
 Fretboard.prototype.generateScale = function(tuningNoteIntervals) {
   scale = tuningNoteIntervals.map(function(obj) {
     return obj.note;
