@@ -1,7 +1,3 @@
-// suggest tuning/chord to note parser for exercism.io
-// var tuning = $('#tuning').value()
-// var root = $('#root').value()
-// var tuning = new Tuning(tuning, root)
 const INTERVAL_SYMBOLS = ["1", "b2", "2", "b3", "3", "4", "b5", "5", "#5", "6", "b7", "7"];
 
 const FLAT_TO_SHARP = {
@@ -141,11 +137,3 @@ function RootError(message) {
   this.message = message;
   this.name = "RootError";
 };
-
-// var notes = ["A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab"];
-
-// var standard = new Tuning("EADGBE", "E");
-var eb = new Tuning("EbADGBE", "Eb");
-// var americanFootball = new Tuning("FACGCE", "F");
-// var algernonCadwallader = new Tuning("DAEAC#E", "D");
-// var lute = new Tuning("EADF#BE", "E");
