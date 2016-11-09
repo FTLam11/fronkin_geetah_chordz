@@ -73,7 +73,7 @@ chord.factory('Chord', function() {
 
     for (var i = 0; i < INTERVAL_SYMBOLS.length; i++) {
       for (var j = 0; j < intervals.length; j++) {
-        if (INTERVAL_SYMBOLS[i] == intervals[j]) {
+        if (INTERVAL_SYMBOLS[i] == intervals[j] || INTERVAL_SYMBOLS[i] == intervals[j] - 7) {
           var noteObj = {};
           noteObj['note'] = [notes[currentNoteIndex]];
           noteObj['interval'] = intervals[j];
