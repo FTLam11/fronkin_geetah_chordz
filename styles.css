@@ -91,7 +91,7 @@ h1 {
 .guitar-neck .strings {
   position: absolute;
   left: 0;
-  top: 15px;
+  top: 25px;
   width: 960px;
   height: 250px;
 }
@@ -148,20 +148,23 @@ h1 {
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
   cursor: pointer;
 }
+.guitar-neck .notes .string.low-e {
+  bottom: -6%;
+}
 .guitar-neck .notes .string.a {
-  bottom: 37px;
+  bottom: 17%;
 }
 .guitar-neck .notes .string.d {
-  bottom: 100px;
+  bottom: 39%;
 }
 .guitar-neck .notes .string.g {
-  bottom: 160px;
+  bottom: 60%;
 }
 .guitar-neck .notes .string.b {
-  bottom: 220px;
+  bottom: 82%;
 }
 .guitar-neck .notes .string.high-e {
-  bottom: 275px;
+  bottom: 105%;
 }
 .chord-note {
   border-radius: 0 !important;
