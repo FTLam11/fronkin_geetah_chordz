@@ -1,5 +1,13 @@
 var geetah = angular.module('geetah');
 
+geetah.directive('notez', function() {
+  return {
+    restrict: 'E',
+    template: `<li class="animate-repeat rotate"  ng-style="{background: note.color}" ng-mouseenter="note.showInterval = true" ng-mouseleave="note.showInterval = false" ng-class="{'chord-note': note.chordInterval == true}">{{showInterval(note)}}</li>`,
+    controller: 'GeetahCtrl'
+  };
+});
+
 geetah.filter('reverse', function() {
   return function(notes) {
     if (notes == undefined) {
