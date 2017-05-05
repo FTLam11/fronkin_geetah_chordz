@@ -61,18 +61,13 @@ Tuning.prototype.intervals = function() {
   
   for (var i = 0; i < 12; i++) {
     var noteObj = {};
-    noteObj['note'] = notes[currentNoteIndex];
+    noteObj['note'] = notes[currentNoteIndex % 12];
     noteObj['interval'] = INTERVAL_SYMBOLS[i];
     noteObj['color'] = COLOR_INTERVALS[INTERVAL_SYMBOLS[i]];
     noteObj['chordInterval'] = undefined;
     noteObj['showInterval'] = false;
     noteObjDetails.push(noteObj);
-
-    if (currentNoteIndex == 11) {
-      currentNoteIndex = 0;
-    } else {
-      currentNoteIndex++;
-    };
+    currentNoteIndex++;
   };
 
   return noteObjDetails;
