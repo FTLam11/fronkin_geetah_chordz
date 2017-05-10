@@ -25,10 +25,6 @@ function Tuning(tuning, root) {
   this.intervals = this.intervals();
 };
 
-Tuning.prototype.tuningToArr = function() {
-  return this.name.split('');
-};
-
 Tuning.prototype.validateName = function(tuning) {
   if (this.validLength(tuning) && this.validChars(tuning) && this.validAccidentals(tuning)) {
     return tuning;
@@ -50,19 +46,7 @@ Tuning.prototype.validAccidentals = function(tuning) {
 };
 
 Tuning.prototype.parse = function() {
-  var tuningArr = this.tuningToArr();
-
-  for (var i = 0; i < tuningArr.length; i++) {
-    if (tuningArr[i] == "#") {
-      tuningArr[i - 1] = tuningArr[i - 1] + "#";
-    } else if (tuningArr[i] == "b") {
-      tuningArr[i - 1] = tuningArr[i - 1] + "b";
-    };
-  };
-
-  return tuningArr.filter(function(char) {
-    return ((char != "#") && (char != "b"));
-  });  
+  return this.name.split(/(?=[A-G][#b]?)/);
 };
 
 Tuning.prototype.intervals = function() {
@@ -77,18 +61,13 @@ Tuning.prototype.intervals = function() {
   
   for (var i = 0; i < 12; i++) {
     var noteObj = {};
-    noteObj['note'] = notes[currentNoteIndex];
+    noteObj['note'] = notes[currentNoteIndex % 12];
     noteObj['interval'] = INTERVAL_SYMBOLS[i];
     noteObj['color'] = COLOR_INTERVALS[INTERVAL_SYMBOLS[i]];
     noteObj['chordInterval'] = undefined;
     noteObj['showInterval'] = false;
     noteObjDetails.push(noteObj);
-
-    if (currentNoteIndex == 11) {
-      currentNoteIndex = 0;
-    } else {
-      currentNoteIndex++;
-    };
+    currentNoteIndex++;
   };
 
   return noteObjDetails;

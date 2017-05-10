@@ -86,11 +86,7 @@ chord.factory('Chord', function() {
         };
       };
 
-      if (currentNoteIndex == 11) {
-        currentNoteIndex = 0;
-      } else {
-        currentNoteIndex++;
-      };
+      currentNoteIndex = (currentNoteIndex + 1) % 12;
     };
     
     return intervalNoteArr;
