@@ -20,7 +20,7 @@ Chord.prototype.getNotes = function(intervals) {
         var noteObj = {};
         noteObj['note'] = [notes[currentNoteIndex]];
         noteObj['interval'] = intervals[j];
-      
+
         if (notes[currentNoteIndex].match(/.{1}#/) != null) {
           noteObj['note'].push(SHARP_TO_FLAT[notes[currentNoteIndex]]);
         };
@@ -31,7 +31,7 @@ Chord.prototype.getNotes = function(intervals) {
 
     currentNoteIndex = (currentNoteIndex + 1) % 12;
   };
-  
+
   return intervalNoteArr;
 };
 
